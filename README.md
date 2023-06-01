@@ -1,108 +1,274 @@
-# TRABALHO 01:  Título do Trabalho
+# TRABALHO 01: Amor&Partinhas
 Trabalho desenvolvido durante a disciplina de BD1
 
 # Sumário
 
 ### 1. COMPONENTES<br>
 Integrantes do grupo<br>
-primeiro_componente_do_grupo:email_primeiro_componente@dominio.com<br>
-segundo_componente_do_grupo:email_segundo_componente@dominio.com<br>
-...<br>
+Isabella Bissoli: <isabellabg244@gmail.com><br>
+Isabella Sampaio: <isabellasmsantos47@gmail.com><br>
+Ludmila Dias: ludmiladias.inf@gmail.com <br>
+Marcela Starling: marcela.sfl@hotmail.com <br>
+Renzo Avance: <renzogavance@gmail.com><br>
+
 
 ### 2.INTRODUÇÃO E MOTIVAÇÃO<br>
-Este documento contém a especificação do projeto do banco de dados <nome do projeto> 
-<br>e motivação da escolha realizada. <br>
+Este documento contém a especificação do projeto do banco de dados Amor&Patinhas
 
-> A empresa "Devcom Projetos" visa colaborar com desenvolvimento de projetos para uma sociedade melhor. Sabendo-se dos desafios para gerenciar projetos dentro de uma empresa e visando unir as informações relativas a funcionários, departamentos e projetos em um mesmo local, ficamos motivados com o desenvolvimento deste sistema. O Sistema "Devcom" tem como objetivo gerenciar todas as informações ao desenvolvimento das atividades de projetos em diversas localidades do país. Para realizar suas operações adequadamente e empresa necessita que sistema que armazene informações relativas aos Projetos, Departamentos e Empregados, além de também armazenar dados sobre  Dependentes e Históricos de Salário dos empregados. O sistema deverá gerar um conjunto de relatórios que por sua vez atenderá os anseios da empresa em questão.
+> É de extrema importância ter um sistema eficiente de controle para auxiliar os administradores e voluntários no gerenciamento das atividades internas e na vida dos animais. O abrigo Amor&Patinhas atua não apenas como um lar temporário para esses animais, mas também como uma porta de entrada para que eles encontrem famílias amorosas e tenham uma segunda chance na vida. Todo animal ao chegar no abrigo, necessita de uma identificação e tratamento digno enquanto estiver em vida.
  
 
 ### 3.MINI-MUNDO<br>
 
-Descrever o mini-mundo! (Não deve ser maior do que 30 linhas, se necessário resumir para justar) <br>
-Entrevista com o usuário e identificação dos requisitos.(quando for o caso de sistemas com cliente  real)<br>
-Descrição textual das regras de negócio definidas como um  subconjunto do mundo real 
-cujos elementos são propriedades que desejamos incluir, processar, armazenar, 
-gerenciar, atualizar, e que descrevem a proposta/solução a ser desenvolvida.
+> Todo animal ao chegar no abrigo, necessita que um administrador o cadastre com algumas informações básicas para ser identificado, como a raça, nome, idade, data que chegou ao abrigo, cor e espécie (as espécies dos animais devem ser diferenciadas através de códigos). A espécie do animal se distingue por Gato ou Cachorro. Já a raça, informa a família do animal (exemplo: vira-lata, siamês, golden retriever...)
+ 
+> Do sistema espera-se que seja possível que o administrador cadastre também os voluntários que tenham interesse para ajudar nas atividades do abrigo e no cuidado dos animais. Ao demonstrar interesse, esse voluntário se torna um funcionário do abrigo e pode contribuir de várias formas, caso tenha alguma formação na área animal (como um veterinário), poderá auxiliar em consultas, aplicação e dosagem de remédios. Caso não tenha, é alocado para manutenções gerais, limpeza, alimentação e banho. Deve ser possível inserir os dados dos funcionários do abrigo, colocando nome, cpf, telefone, email, endereço e ocupação (onde irá atuar no abrigo, qual tarefa…) para que assim seja possível controlar a entrada e saída de pessoas no abrigo e sua atuação.
+Todos os funcionários devem estar vinculados a pelo menos um animal ou vários. O animal pode estar relacionado a um ou vários funcionários, pois pode existir a necessidade de ter um veterinário supervisionando e outro funcionário dando banho e comida. 
+O sistema deve possibilitar que o administrador ou o voluntário gere uma ficha, ou histórico, do animal (caso requisitado pelo usuário), contendo todas as informações que foram cadastradas do mesmo, para facilidade de visualização e controle
 
-> O sistema proposto para a "Devcom Projetos conterá as informacões aqui detalhadas. Dos Projetos serão armazenados o número, nome e cidade. Dos Departamentos serão armazenados o número e nome. O cliente destacou que cada projeto pode ter vários departamentos auxiliando no seu desenvolvimento, e cada departamento pode estar envolvido em vários projetos. Os dados relativos aos empregados que serão armazenados são: rg, nome, cpf, salário, data inicial do salario e supervisor de cada empregado. É importante destacar que cada empregado pode ser supervisionado por outro empregado, e obrigatoriamente deve estar alocado a um único departamento, mas pode gerenciar vários departamentos ou não gerenciar nenhum. Um empregado também pode participar de vários projetos, caso seja necessário, mas não precisa obrigatoriamente estar alocado em algum projeto. Com relação aos dependentes serão armazenadas as informações de nome do dependente, data de nascimento, sexo e grau de parentesco. Cada empregado pode ter vários dependentes, mas um dependente esta associado apenas a um único empregado. Com relação ao histórico de salário devemos armazenar as informações de valor do salário, data de início do salário no período e data final do salário no período. É importante lembrar que cada funcionario pode ter diversos eventos de histórico de salário associados a ele visto que este dado pode ser alterado várias vezes. 
+> O sistema de adoção funciona da seguinte forma: Um interessado demonstra o interesse a um animal ou vários e é exibido na listagem de interesses para que ele passe por toda uma avaliação (se está adapto a receber seu novo amigo em sua residência). E caso seja o escolhido, o administrador poderá vincular o interessado ao animal, confirmando o processo de adoção. Para controle, antes do vinculo ocorrer, um cadastro do adotante deve ser feito no sistema com as informações: Nome, telefone, CPF, email e endereço.
 
 ### 4.PROTOTIPAÇÃO, PERGUNTAS A SEREM RESPONDIDAS E TABELA DE DADOS<br>
+
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
-Neste ponto a codificação não e necessária, somente as ideias de telas devem ser criadas, o princípio aqui é pensar na criação da interface para identificar possíveis informações a serem armazenadas ou descartadas <br>
 
-Sugestão: https://balsamiq.com/products/mockups/<br>
+> Menu e login
 
-![Alt text](https://github.com/discipbd1/trab01/blob/master/balsamiq.png?raw=true "Title")
-![Arquivo PDF do Protótipo Balsamiq feito para Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/EmpresaDevcom.pdf?raw=true "Empresa Devcom")
-#### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
-    a) O sistema proposto poderá fornecer quais tipos de relatórios e informaçes? 
-    b) Crie uma lista com os 5 principais relatórios que poderão ser obtidos por meio do sistema proposto!
-    
-> A Empresa DevCom precisa inicialmente dos seguintes relatórios:
-* Relatório que mostre o nome de cada supervisor(a) e a quantidade de empregados supervisionados.
-* Relatório relativo aos os supervisores e supervisionados. O resultado deve conter o nome do supervisor e nome do supervisionado além da quantidade total de horas que cada supervisionado tem alocada aos projetos existentes na empresa.
-* Relatorio que mostre para cada linha obtida o nome do departamento, o valor individual de cada salario existente no  departamento e a média geral de salarios dentre todos os empregados. Os resultados devem ser apresentados ordenados por departamento.
-* Relatório que mostre as informações relacionadas a todos empregados de empresa (sem excluir ninguém). As linhas resultantes devem conter informações sobre: rg, nome, salario do empregado, data de início do salario atual, nomes dos projetos que participa, quantidade de horas e localização nos referidos projetos, numero e nome dos departamentos aos quais está alocado, informações do historico de salário como inicio, fim, e valores de salarios antigos que foram inclusos na referida tabela (caso possuam informações na mesma), além de todas informações relativas aos dependentes. 
->> ##### Observações: <br> a) perceba que este relatório pode conter linhas com alguns dados repetidos (mas não todos). <br>  b) para os empregados que não possuirem alguma destas informações o valor no registro deve aparecer sem informação/nulo. 
-* Relatório que obtenha a frequencia absoluta e frequencia relativa da quantidade de cpfs únicos no relatório anterior. Apresente os resultados ordenados de forma decrescente pela frequencia relativa.
+![Captura de tela 2023-05-31 102636](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/3c345d7a-b359-4c93-9806-3d53029db0bf)
+
+
+> Menu principal e Edição de dados
+
+![Captura de tela 2023-05-31 102707](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/3b2eb39c-4632-43a9-94d4-135a52772688)
+
+
+> Informações do animal e dados médicos de cada
+
+![Captura de tela 2023-05-31 102743](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/22398020-9125-4c7a-b781-c95fb1e93d0d)
 
  
+> Cronograma de tratamentos e agendamentos
+
+![Captura de tela 2023-05-31 102810](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/cc5b94c9-dee6-42ec-bb6d-1378a3dfd9ad)
+
+
+> Cadastrar animal e voluntário
+
+![Captura de tela 2023-05-31 102926](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/016d7c83-162f-4257-b317-8391200cf82c)
+
+#### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
+    
+> A Empresa Amor&Patinhas precisa inicialmente dos seguintes relatórios:
+* Relatório relativo ao animal, contendo informações como data de cheagada no abrigo, raça, pelagem, espécie, etc.
+* Relatório que mostre o tipo de tratamento que o animal precisa.
+* Relatório que mostre qual animal foi adotado e quem foi o responsável pela adoção. 
+* Relatório relativo a quantidade de funcionários que atuam no abrigo e qual o papel estes desempenham.
+* Relatório relativo às informações dos adotantes. 
  
 #### 4.3 TABELA DE DADOS DO SISTEMA:
-    a) Esta tabela deve conter todos os atributos do sistema e um mínimo de 10 linhas/registros de dados.
-    b) Esta tabela tem a intenção de simular um relatório com todos os dados que serão armazenados 
-    
-![Exemplo de Tabela de dados da Empresa Devcom](https://github.com/discipbd1/trab01/blob/master/arquivos/TabelaEmpresaDevCom_sample.xlsx?raw=true "Tabela - Empresa Devcom")
-    
-    
+
+[DATABASE.xlsx](https://github.com/AmoreAPatinhas/Template_Trab_BD1/files/11630299/DATABASE.xlsx)
+        
 ### 5.MODELO CONCEITUAL<br>
-    A) Utilizar a Notação adequada (Preferencialmente utilizar o BR Modelo 3)
-    B) O mínimo de entidades do modelo conceitual pare este trabalho será igual a 3 e o Máximo 5.
-        * informe quais são as 3 principais entidades do sistema em densenvolvimento<br>(se houverem mais de 3 entidades, pense na importância da entidade para o sistema)       
-    C) Principais fluxos de informação/entidades do sistema (mínimo 3). <br>Dica: normalmente estes fluxos estão associados as tabelas que conterão maior quantidade de dados 
-    D) Qualidade e Clareza
-        Garantir que a semântica dos atributos seja clara no esquema (nomes coerentes com os dados).
-        Criar o esquema de forma a garantir a redução de informação redundante, possibilidade de valores null, 
-        e tuplas falsas (Aplicar os conceitos de normalização abordados).   
-        
-![Alt text](https://github.com/discipbd1/trab01/blob/master/images/concept_sample.png?raw=true "Modelo Conceitual")
+
+Principais entidades: Animal, Funcionário e Adotante
+
+Relacionamentos Principais:
+
+> Cuida (Funcionários/Animal):
+1) Um funcionário cuida de um ou vários animais
+2) Um animal é cuidado por um ou vários funcionários
+
+> Adota (Interessado/Animal):
+1) Um interessado adota um animal ou vários
+2) Um animal pode ser adotado por apenas um adotante ou por ninguém
+
+
+> Realiza (Necessitado/Castração):
+1) Um necessitado realiza nenhuma ou apenas uma castração
+2) Um código de castração está ligado (pode ser ligado) a um animal necessitad
     
-    
-        
-    
+![MODELO CONCEITUAL CERTO](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/cfb22bd0-dae1-4c19-b728-b1ea92bad290)
+       
 #### 5.1 Validação do Modelo Conceitual
-    [Grupo01]: [Nomes dos que participaram na avaliação]
-    [Grupo02]: [Nomes dos que participaram na avaliação]
+#### [PathFinder]: Eduardo Próspero, Lucas Vieira, Mattheus Colares, Victor Oliveira Santos:
+##### Considerações do grupo: 
+>
+
+--------------------------------------
+#### [CarCents]: Kailany Faustino, Lucas Codeco, Micaely Gusmão, Richard Lucas
+##### Considerações do grupo: 
+> O trabalho está muito bem estruturado, tendo em vista que avaliamos apenas a relação do mini mundo com o modelo conceitual. Talvez o procedimento devesse ter alguma relação com funcionário, mas isso vai do que foi definido pelo grupo. Muito bom!
 
 #### 5.2 Descrição dos dados 
-    [objeto]: [descrição do objeto]
-    
-    EXEMPLO:
-    CLIENTE: Tabela que armazena as informações relativas ao cliente<br>
-    CPF: campo que armazena o número de Cadastro de Pessoa Física para cada cliente da empresa.<br>
+
+ * FUNCIONÁRIO: Identificação das informações do funcionário voluntário do abrigo para segurança e organização
+
+ * ANIMAL: Identificação das informações de cada animal que chega no abrigo para controle da quantidade e de cad aum individualmente
+
+ * ESPÉCIE: Identifica se o animal que chegou é Cachorro ou Gato
+
+ * ENDEREÇO: Serve para identificarmos o endereço do funcionário e do adotante para segurança do abrigo
+
+ * ADOTANTE: código do adotante, nome do adotante, cpf, email, endereço
+
+ * ANIMAL ADOTANTE: código a adoção, código do adotante, código do animal, data da adoção
+
+ * PROCEDIMENTO: código do procedimento, código do animal, descrição e data
+
+ * TIPO DE TRATAMENTO: código de tratamento e descrição
 
 
 ### 6	MODELO LÓGICO<br>
-        a) inclusão do esquema lógico do banco de dados
-        b) verificação de correspondencia com o modelo conceitual 
-        (não serão aceitos modelos que não estejam em conformidade)
+
+![modelo logico](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/130158423/be605034-fd7c-4711-becd-6e3a3f547e57)
 
 ### 7	MODELO FÍSICO<br>
-        a) inclusão das instruções de criacão das estruturas em SQL/DDL 
-        (criação de tabelas, alterações, etc..) 
-        
+
+```
+CREATE TABLE ANIMAL(
+  ID_ANIMAL INT PRIMARY KEY,
+  RACA VARCHAR(50),
+  NOME VARCHAR(50),
+  DATA_CHEGADA DATE,
+  PELAGEM VARCHAR(100),
+  CODIGO_ESPECIE INT, 
+  CODIGO_FUNCIONARIO INT,
+  FOREIGN KEY (CODIGO_FUNCIONARIO) REFERENCES FUNCIONARIO(CODIGO_FUNCIONARIOS),
+  FOREIGN KEY (CODIGO_ESPECIE) REFERENCES ESPECIE(ID_ESPECIE)
+);
+
+CREATE TABLE ANIMAL_ADOTANTE(
+ CODIGO_ADOCAO INT PRIMARY KEY,
+ CODIGO_ADOTANTE INT,
+ CODIGO_ANIMAL INT,
+ DATA_ADOCAO DATE,
+ FOREIGN KEY (CODIGO_ADOTANTE) REFERENCES ADOTANTE(CODIGO_ADOTANTE),
+ FOREIGN KEY (CODIGO_ANIMAL) REFERENCES ANIMAL(ID_ANIMAL)
+);
+
+CREATE TABLE PROCEDIMENTO(
+ ID_TRATAMENTO INT,
+ ID_ANIMAL INT,
+ DESCRICAO VARCHAR(100),
+ DATA_HORA DATE,
+ FOREIGN KEY (ID_ANIMAL) REFERENCES ANIMAL(ID_ANIMAL),
+ FOREIGN KEY (ID_TRATAMENTO) REFERENCES TIPO_TRATAMENTO(ID_TRATAMENTO)
+);
+
+CREATE TABLE ADOTANTE(
+ CODIGO_ADOTANTE INT PRIMARY KEY,
+ NOME_ADOTANTE VARCHAR(50),
+ TELEFONE_ADOTANTE VARCHAR(15),
+ CPF_ADOTANTE VARCHAR (10),
+ EMAIL_ADOTANTE VARCHAR(50),
+ CODIGO_ENDERECO INT,
+ FOREIGN KEY (CODIGO_ENDERECO) REFERENCES ENDERECO(CODIGO_ENDERECO)
+);
+
+CREATE TABLE ENDERECO(
+ CODIGO_ENDERECO INT PRIMARY KEY,
+ NOME_LOUGRADOURO VARCHAR(100),
+ NUMERO INT,
+ COMPLEMENTO INT,
+ NOME_BAIRRO VARCHAR(100),
+ NOME_MUNICIPIO VARCHAR(100)
+);
+
+CREATE TABLE TIPO_TRATAMENTO(
+ ID_TRATAMENTO INT PRIMARY KEY,
+ DESCRICAO VARCHAR(100)
+);
+
+CREATE TABLE ESPECIE(
+ ID_ESPECIE INT PRIMARY KEY,
+ TIPO_ESPECIE VARCHAR(100)
+);
+
+CREATE TABLE FUNCIONARIO (
+ CODIGO_FUNCIONARIOS INT PRIMARY KEY,
+ NOME_FUNCIONARIO VARCHAR(500),
+ TELEFONE_FUNCIONARIO VARCHAR(15),
+ EMAIL_FUNCIONARIO VARCHAR(50),
+ OCUPACAO VARCHAR(50)
+);
+
+```
        
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
-        a) inclusão das instruções de inserção dos dados nas tabelas criadas pelo script de modelo físico
-        (Drop para exclusão de tabelas + create definição de para tabelas e estruturas de dados + insert para dados a serem inseridos)
-        b) Criar um novo banco de dados para testar a restauracao 
-        (em caso de falha na restauração o grupo não pontuará neste quesito)
-        c) formato .SQL
 
+```
+INSERT INTO ANIMAL (id_animal, raca, nome, data_chegada, pelagem, codigo_especie, codigo_funcionario)
+VALUES
+  ('1', 'Vira-Lata', 'banana', '2022-04-29','Pelagem curta',  '1', 1),
+  ('2', 'Golden Retriver', 'kika', '2023-03-31', 'Pelagem Longa', '1', 2),
+  ('3', 'Angorá', 'floquinho', '2022-05-02', 'Pelagem média', '2', 2),
+  ('4', 'Somali', 'rex', '2023-02-10', 'Pelagem Média', '2', 3),
+  ('5', 'Border Collie', 'luci', '2023-03-04', 'Pelagem Longa', '1', 4),
+  ('6', 'Britsh Longhair', 'amora', '2023-04-03', 'Pelagem Longa', '2', 5);
+
+INSERT INTO ANIMAL_ADOTANTE(codigo_adocao, codigo_adotante, codigo_animal, data_adocao)
+VALUES
+ (1, 2, 1, '2022-10-12'),
+ (2, 1, 2, '2023-05-14'),
+ (3, 4, 5, '2023-03-01'),
+ (4, 3, 4, '2022-11-25');
+
+INSERT INTO PROCEDIMENTO (id_tratamento, id_animal, descricao, data_hora)
+VALUES
+ (3, 1, 'castracao agendada', '2023-04-24 13:00'),
+ (1, 5, 'vaciana de tetano', '2023-05-10 13:00'),
+ (2, 4, 'medicacao de dor', NULL),
+ (3, 2, 'castracao agendada', '2023-08-03 13:00');
+
+INSERT INTO ADOTANTE(codigo_adotante, nome_adotante, telefone_adotante, cpf_adotante, email_adotante, codigo_endereco)
+VALUES
+ (1, 'Andrea Cardoso', '27983293861', '286.464.205-07', 'andrea_card@gmail.com', 1),
+ (2, 'Julia Teixeira de Castro', '27996997958', '530.949.381-67', 'juju_tex123@gmail.com', 3),
+ (3, 'Luis Edson', '27999893304', '342.586.906-00', 'luisEd@yahoo.com.br', 1),
+ (4, 'Elza Costa', '27999402349', '734.251.972-31', 'elza12344@gmail.com', 3);
+
+INSERT INTO ENDERECO VALUES(3,'Rua Loureiro Nunes',444, 204,'Mata da Praia','Vitória');
+
+INSERT INTO TIPO_TRATAMENTO(id_tratamento, descricao)
+VALUES
+ ('1', 'vacinacao'),
+ ('2', 'remedio'),
+ ('3', 'castracao');
+
+
+INSERT INTO ESPECIES values (1,'Cachorro');
+INSERT INTO ESPECIES values (2,'Gato');
+
+INSERT INTO FUNCIONARIO (codigo_funcionarios, nome_funcionario, telefone_funcionario, email_funcionario, ocupacao)
+VALUES
+  (1, 'Isabel E.', '2799444756', 'isabelly123@gmail.com', 'Médica Veterinária'),
+  (2, 'Flávia M.', '2799291824', 'flaviaMS47@hotmail.com', 'Atendente'),
+  (3, 'Breno G.', '2798599222', 'breno_guigui@yahoo.com.br', 'Atendente');
+  
+INSERT INTO FUNCIONARIO (codigo_funcionarios, nome_funcionario, telefone_funcionario, email_funcionario, ocupacao)
+VALUES
+  (4, 'Igor Daniel.', '27999495478', 'igor_sales@ifes.edu.br', 'Técnico de TI'),
+  (5, 'Antônia Sebastiana', '27994614738', 'antoniaSebas23@gmail.com', 'Cirugiã Veterinária'),
+  (6, 'Maitê Sara', '27983414394', 'maitêSaf@outlook.com', 'Técnica');
+ 
+```
 
 ### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
-    OBS: Incluir para cada tópico as instruções SQL + imagens (print da tela) mostrando os resultados.<br>
+
+#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
+
+![arte 1](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/e861c29a-f43d-4b3a-a62d-b8a84c46ff4c)
+--------------------------------------
+![arte 2](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/f77a01bf-129b-44ad-bee6-4014f215abc2)
+--------------------------------------
+![arte 3](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/56fc1328-4b98-4b4a-a217-bf0aa67a663a)
+--------------------------------------
+![arte 4](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/15a3a05f-1918-4f79-b57a-0e9de792e83c)
+--------------------------------------
+![arte 5](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/d715393c-d87f-4289-8b25-6c3d9170d010)
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
