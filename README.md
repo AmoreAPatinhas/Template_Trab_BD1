@@ -93,7 +93,26 @@ Relacionamentos Principais:
 #### 5.1 Validação do Modelo Conceitual
 #### [PathFinder]: Eduardo Próspero, Lucas Vieira, Mattheus Colares, Victor Oliveira Santos:
 ##### Considerações do grupo: 
->
+> O mini-mundo referencia o atributo "idade" na entidade animal, mas o modelo conceitual não contém
+esse atributo. O mini-mundo referencia a entidade "administrador", mesmo administrador sendo um funcionário, seria
+interessante colocar o administrador no escopo do modelo separado de funcionário, já que tem interação 
+direta de cadastros com o mesmo, coisas que nenhuma outra entidade pode fazer. Seria interessante expressar o tipo de funcionário que um voluntário pode se tornar, seria possível
+fazer isso com uma entidade que armazena todos os tipos de funcionário e assim há forma de 
+expressar no modelo qual funcionário pode ou não auxiliar em consultas e etc.
+
+> Percebemos que o processo de vínculo de um animal e um interessado aparentemente acontece com o auxilio
+do administrador e apenas dele, isso pode ser um problema dependendo da escala do sistema. Como dito antes,
+seria interessante expressar o tipo de funcionário, pois aí é possível dizer que existe mais do que um 
+administrador dentro do sistema. Se a existência de um administrador for expressada apenas no mini-mundo,
+é interpretável que só exista um administrador no sistema.
+
+> Uma boa prática do grupo foi considerar endereço uma entidade, pois segue a forma normal 1, onde
+atributos multivalorados se tornam entidades, O endereço é um atributo crucial nesse progama como
+apontado no mini-mundo, esse detalhe foi muito condizente com os princípios do projeto.
+
+> Ademais, o modelo é bem fechado, com excessão do administrador dentro do sistema, todas as entidades estão
+bem representadas no sistema, as relações entre as entidades não geraram nenhuma confusão, Trabalho muito 
+bem organizado e de fácil entendimento. Os ajustes são pontuais e podem ser feitos de forma rápida.
 
 --------------------------------------
 #### [CarCents]: Kailany Faustino, Lucas Codeco, Micaely Gusmão, Richard Lucas
