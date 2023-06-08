@@ -70,6 +70,7 @@ O sistema deve possibilitar que o administrador ou o voluntário gere uma ficha,
 [DATABASE.xlsx](https://github.com/AmoreAPatinhas/Template_Trab_BD1/files/11630299/DATABASE.xlsx)
         
 ### 5.MODELO CONCEITUAL<br>
+![usaresse](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/95357142/87772cdb-2910-4561-b3f3-f4cbc537f243)
 
 Principais entidades: Animal, Funcionário e Adotante
 
@@ -88,7 +89,7 @@ Relacionamentos Principais:
 1) Um necessitado realiza nenhuma ou apenas uma castração
 2) Um código de castração está ligado (pode ser ligado) a um animal necessitad
     
-![MODELO CONCEITUAL CERTO](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/cfb22bd0-dae1-4c19-b728-b1ea92bad290)
+
        
 #### 5.1 Validação do Modelo Conceitual
 #### [PathFinder]: Eduardo Próspero, Lucas Vieira, Mattheus Colares, Victor Oliveira Santos:
@@ -126,78 +127,143 @@ Relacionamentos Principais:
 
 
 ### 6	MODELO LÓGICO<br>
+![Captura de tela 2023-06-08 193519](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/95357142/049bdf2b-b4dc-4c57-bdb3-5782820fce0e)
 
-![modelo logico](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/130158423/be605034-fd7c-4711-becd-6e3a3f547e57)
 
 ### 7	MODELO FÍSICO<br>
 
 ```
-CREATE TABLE ANIMAL(
-  ID_ANIMAL INT PRIMARY KEY,
-  RACA VARCHAR(50),
-  NOME VARCHAR(50),
-  DATA_CHEGADA DATE,
-  PELAGEM VARCHAR(100),
-  CODIGO_ESPECIE INT, 
-  CODIGO_FUNCIONARIO INT,
-  FOREIGN KEY (CODIGO_FUNCIONARIO) REFERENCES FUNCIONARIO(CODIGO_FUNCIONARIOS),
-  FOREIGN KEY (CODIGO_ESPECIE) REFERENCES ESPECIE(ID_ESPECIE)
+/* ModeloLogico_PatinhaseAmor: */
+
+CREATE TABLE ESPECIE (
+    id_especie integer PRIMARY KEY,
+    tipo_especie string
 );
 
-CREATE TABLE ANIMAL_ADOTANTE(
- CODIGO_ADOCAO INT PRIMARY KEY,
- CODIGO_ADOTANTE INT,
- CODIGO_ANIMAL INT,
- DATA_ADOCAO DATE,
- FOREIGN KEY (CODIGO_ADOTANTE) REFERENCES ADOTANTE(CODIGO_ADOTANTE),
- FOREIGN KEY (CODIGO_ANIMAL) REFERENCES ANIMAL(ID_ANIMAL)
+CREATE TABLE ANIMAL (
+    id_animal integer PRIMARY KEY,
+    nome string,
+    data_chegada date,
+    id_especie integer,
+    porte string,
+    FK_PESSOA_id_pessoa integer,
+    FK_FUNCIONARIO_id_funcionario integer,
+    FK_FUNCIONARIO_FK_PESSOA_id_pessoa integer
 );
 
-CREATE TABLE PROCEDIMENTO(
- ID_TRATAMENTO INT,
- ID_ANIMAL INT,
- DESCRICAO VARCHAR(100),
- DATA_HORA DATE,
- FOREIGN KEY (ID_ANIMAL) REFERENCES ANIMAL(ID_ANIMAL),
- FOREIGN KEY (ID_TRATAMENTO) REFERENCES TIPO_TRATAMENTO(ID_TRATAMENTO)
-);
-
-CREATE TABLE ADOTANTE(
- CODIGO_ADOTANTE INT PRIMARY KEY,
- NOME_ADOTANTE VARCHAR(50),
- TELEFONE_ADOTANTE VARCHAR(15),
- CPF_ADOTANTE VARCHAR (10),
- EMAIL_ADOTANTE VARCHAR(50),
- CODIGO_ENDERECO INT,
- FOREIGN KEY (CODIGO_ENDERECO) REFERENCES ENDERECO(CODIGO_ENDERECO)
-);
-
-CREATE TABLE ENDERECO(
- CODIGO_ENDERECO INT PRIMARY KEY,
- NOME_LOUGRADOURO VARCHAR(100),
- NUMERO INT,
- COMPLEMENTO INT,
- NOME_BAIRRO VARCHAR(100),
- NOME_MUNICIPIO VARCHAR(100)
-);
-
-CREATE TABLE TIPO_TRATAMENTO(
- ID_TRATAMENTO INT PRIMARY KEY,
- DESCRICAO VARCHAR(100)
-);
-
-CREATE TABLE ESPECIE(
- ID_ESPECIE INT PRIMARY KEY,
- TIPO_ESPECIE VARCHAR(100)
+CREATE TABLE TIPO_TRATAMENTO (
+    descricao string,
+    id_tratamento integer PRIMARY KEY
 );
 
 CREATE TABLE FUNCIONARIO (
- CODIGO_FUNCIONARIOS INT PRIMARY KEY,
- NOME_FUNCIONARIO VARCHAR(500),
- TELEFONE_FUNCIONARIO VARCHAR(15),
- EMAIL_FUNCIONARIO VARCHAR(50),
- OCUPACAO VARCHAR(50)
+    id_funcionario integer,
+    ocupacao string,
+    FK_PESSOA_id_pessoa integer,
+    PRIMARY KEY (id_funcionario, FK_PESSOA_id_pessoa)
 );
+
+CREATE TABLE ENDERECO (
+    nome_rua string,
+    id_endereco integer PRIMARY KEY,
+    bairro string,
+    cep integer,
+    numero integer,
+    id_pessoa integer
+);
+
+CREATE TABLE RACA (
+    id_animal integer,
+    nome_raca string,
+    id_raca integer PRIMARY KEY,
+    id_especie integer
+);
+
+CREATE TABLE PELAGEM (
+    id_animal integer,
+    tipo_pelagem string,
+    id_pelagem integer PRIMARY KEY
+);
+
+CREATE TABLE PESSOA (
+    id_pessoa integer PRIMARY KEY,
+    nome_pessoa string,
+    telefone integer,
+    cpf integer,
+    email string,
+    id_animal string,
+    FK_ENDERECO_id_endereco integer
+);
+
+CREATE TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM (
+    fk_ANIMAL_id_animal integer,
+    fk_ESPECIE_id_especie integer,
+    fk_RACA_id_raca integer,
+    fk_PELAGEM_id_pelagem integer
+);
+
+CREATE TABLE Procedimento (
+    fk_ANIMAL_id_animal integer,
+    fk_TIPO_TRATAMENTO_id_tratamento integer,
+    descricao string,
+    data_hora date,
+    id_animal integer,
+    id_tratamento integer
+);
+ 
+ALTER TABLE ANIMAL ADD CONSTRAINT FK_ANIMAL_2
+    FOREIGN KEY (FK_PESSOA_id_pessoa)
+    REFERENCES PESSOA (id_pessoa)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE ANIMAL ADD CONSTRAINT FK_ANIMAL_3
+    FOREIGN KEY (FK_FUNCIONARIO_id_funcionario, FK_FUNCIONARIO_FK_PESSOA_id_pessoa)
+    REFERENCES FUNCIONARIO (id_funcionario, FK_PESSOA_id_pessoa)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE FUNCIONARIO ADD CONSTRAINT FK_FUNCIONARIO_2
+    FOREIGN KEY (FK_PESSOA_id_pessoa)
+    REFERENCES PESSOA (id_pessoa)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE ENDERECO ADD CONSTRAINT FK_ENDERECO_2
+    FOREIGN KEY (id_pessoa???)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE PESSOA ADD CONSTRAINT FK_PESSOA_2
+    FOREIGN KEY (FK_ENDERECO_id_endereco)
+    REFERENCES ENDERECO (id_endereco)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM ADD CONSTRAINT FK_Possui_ANIMAL_ESPECIE_RACA_PELAGEM_1
+    FOREIGN KEY (fk_ANIMAL_id_animal)
+    REFERENCES ANIMAL (id_animal)
+    ON DELETE NO ACTION;
+ 
+ALTER TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM ADD CONSTRAINT FK_Possui_ANIMAL_ESPECIE_RACA_PELAGEM_2
+    FOREIGN KEY (fk_ESPECIE_id_especie)
+    REFERENCES ESPECIE (id_especie)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM ADD CONSTRAINT FK_Possui_ANIMAL_ESPECIE_RACA_PELAGEM_3
+    FOREIGN KEY (fk_RACA_id_raca)
+    REFERENCES RACA (id_raca)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM ADD CONSTRAINT FK_Possui_ANIMAL_ESPECIE_RACA_PELAGEM_4
+    FOREIGN KEY (fk_PELAGEM_id_pelagem)
+    REFERENCES PELAGEM (id_pelagem)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE Procedimento ADD CONSTRAINT FK_Procedimento_1
+    FOREIGN KEY (fk_ANIMAL_id_animal)
+    REFERENCES ANIMAL (id_animal)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Procedimento ADD CONSTRAINT FK_Procedimento_2
+    FOREIGN KEY (fk_TIPO_TRATAMENTO_id_tratamento)
+    REFERENCES TIPO_TRATAMENTO (id_tratamento)
+    ON DELETE SET NULL;
 
 ```
        
