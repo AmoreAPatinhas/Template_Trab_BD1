@@ -137,62 +137,68 @@ Relacionamentos Principais:
 
 CREATE TABLE ESPECIE (
     id_especie integer PRIMARY KEY,
-    tipo_especie string
+    tipo_especie text
 );
 
 CREATE TABLE ANIMAL (
     id_animal integer PRIMARY KEY,
-    nome string,
+    nome text,
     data_chegada date,
     id_especie integer,
-    porte string,
+    porte text,
     FK_PESSOA_id_pessoa integer,
     FK_FUNCIONARIO_id_funcionario integer,
     FK_FUNCIONARIO_FK_PESSOA_id_pessoa integer
 );
 
+
 CREATE TABLE TIPO_TRATAMENTO (
-    descricao string,
+    descricao text,
     id_tratamento integer PRIMARY KEY
 );
 
+
 CREATE TABLE FUNCIONARIO (
     id_funcionario integer,
-    ocupacao string,
+    ocupacao varchar[50],
     FK_PESSOA_id_pessoa integer,
     PRIMARY KEY (id_funcionario, FK_PESSOA_id_pessoa)
 );
 
+
 CREATE TABLE ENDERECO (
-    nome_rua string,
+    nome_rua text,
     id_endereco integer PRIMARY KEY,
-    bairro string,
+    bairro text,
     cep integer,
     numero integer,
     id_pessoa integer
 );
 
+CREATE TABLE PESSOA (
+    id_pessoa integer PRIMARY KEY,
+    nome_pessoa text,
+    telefone integer,
+    cpf integer,
+    email text,
+    id_animal integer,
+    FK_ENDERECO_id_endereco integer,
+    CONSTRAINT FK_PESSOA_ENDERECO FOREIGN KEY (FK_ENDERECO_id_endereco)
+    REFERENCES ENDERECO (id_endereco)
+);
+
+
 CREATE TABLE RACA (
     id_animal integer,
-    nome_raca string,
+    nome_raca text,
     id_raca integer PRIMARY KEY,
     id_especie integer
 );
 
 CREATE TABLE PELAGEM (
     id_animal integer,
-    tipo_pelagem string,
+    tipo_pelagem text,
     id_pelagem integer PRIMARY KEY
-);
-
-CREATE TABLE PESSOA (
-    id_pessoa integer PRIMARY KEY,
-    nome_pessoa string,
-    telefone integer,
-    cpf integer,
-    email string,
-    id_animal string,
-    FK_ENDERECO_id_endereco integer
 );
 
 CREATE TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM (
@@ -205,7 +211,7 @@ CREATE TABLE Possui_ANIMAL_ESPECIE_RACA_PELAGEM (
 CREATE TABLE Procedimento (
     fk_ANIMAL_id_animal integer,
     fk_TIPO_TRATAMENTO_id_tratamento integer,
-    descricao string,
+    descricao text,
     data_hora date,
     id_animal integer,
     id_tratamento integer
@@ -270,59 +276,124 @@ ALTER TABLE Procedimento ADD CONSTRAINT FK_Procedimento_2
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 
 ```
-INSERT INTO ANIMAL (id_animal, raca, nome, data_chegada, pelagem, codigo_especie, codigo_funcionario)
+INSERT INTO ANIMAL (id_animal, nome, data_chegada, id_especie, porte, FK_PESSOA_id_pessoa, FK_FUNCIONARIO_id_funcionario, FK_FUNCIONARIO_FK_PESSOA_id_pessoa)
 VALUES
-  ('1', 'Vira-Lata', 'banana', '2022-04-29','Pelagem curta',  '1', 1),
-  ('2', 'Golden Retriver', 'kika', '2023-03-31', 'Pelagem Longa', '1', 2),
-  ('3', 'Angorá', 'floquinho', '2022-05-02', 'Pelagem média', '2', 2),
-  ('4', 'Somali', 'rex', '2023-02-10', 'Pelagem Média', '2', 3),
-  ('5', 'Border Collie', 'luci', '2023-03-04', 'Pelagem Longa', '1', 4),
-  ('6', 'Britsh Longhair', 'amora', '2023-04-03', 'Pelagem Longa', '2', 5);
+    (1, 'Max', '2022-01-01', 1, 'Pequeno', 1, 1, 1),
+    (2, 'Bella', '2022-02-01', 2, 'Pequeno', 2, 1, 1),
+    (3, 'Charlie', '2022-03-01', 1, 'Médio', 3, 2, 2),
+    (4, 'Lucy', '2022-04-01', 2, 'Pequeno', 4, 2, 2),
+    (5, 'Rocky', '2022-05-01', 1, 'Grande', 5, 3, 3),
+    (6, 'Luna', '2022-06-01', 2, 'Pequeno', 6, 3, 3),
+    (7, 'Maximus', '2022-07-01', 1, 'Grande', 7, 4, 4),
+    (8, 'Sophie', '2022-08-01', 2, 'Médio', 8, 4, 4),
+    (9, 'Buddy', '2022-09-01', 1, 'Pequeno', 9, 5, 5),
+    (10, 'Milo', '2022-10-01', 2, 'Médio', 10, 5, 5);
 
-INSERT INTO ANIMAL_ADOTANTE(codigo_adocao, codigo_adotante, codigo_animal, data_adocao)
+INSERT INTO TIPO_TRATAMENTO (descricao, id_tratamento)
 VALUES
- (1, 2, 1, '2022-10-12'),
- (2, 1, 2, '2023-05-14'),
- (3, 4, 5, '2023-03-01'),
- (4, 3, 4, '2022-11-25');
+    ('Vacinação', 1),
+    ('Cirurgia', 2),
+    ('Exame de sangue', 3),
+    ('Tratamento odontológico', 4),
+    ('Fisioterapia', 5),
+    ('Banho e tosa', 6),
+    ('Desparasitação', 7),
+    ('Consulta veterinária', 8),
+    ('Corte de unhas', 9),
+    ('Adestramento', 10);
 
-INSERT INTO PROCEDIMENTO (id_tratamento, id_animal, descricao, data_hora)
+INSERT INTO FUNCIONARIO (id_funcionario, ocupacao, FK_PESSOA_id_pessoa)
 VALUES
- (3, 1, 'castracao agendada', '2023-04-24 13:00'),
- (1, 5, 'vaciana de tetano', '2023-05-10 13:00'),
- (2, 4, 'medicacao de dor', NULL),
- (3, 2, 'castracao agendada', '2023-08-03 13:00');
+    (1, 'Veterinário', 1),
+    (2, 'Atendente', 2),
+    (3, 'Auxiliar de veterinário', 3),
+    (4, 'Recepcionista', 4),
+    (5, 'Veterinário', 5),
+    (6, 'Atendente', 6),
+    (7, 'Auxiliar de veterinário', 7),
+    (8, 'Veterinário', 8),
+    (9 , 'Atendente', 9),
+    (10, 'Groomer', 10);
 
-INSERT INTO ADOTANTE(codigo_adotante, nome_adotante, telefone_adotante, cpf_adotante, email_adotante, codigo_endereco)
+INSERT INTO ENDERECO (nome_rua, id_endereco, bairro, cep, numero, id_pessoa)
+VALUES    
+    ('Rua A', 1, 'Centro', 12345, 10, 1),
+    ('Rua B', 2, 'Bairro X', 54321, 20, 2),
+    ('Rua C', 3, 'Bairro Y', 67890, 123, 3),
+    ('Rua D', 4, 'Bairro Z', 78901, 456, 4),
+    ('Rua E', 5, 'Bairro X', 89012, 789, 5),
+    ('Rua F', 6, 'Bairro Y', 90123, 234, 6),
+    ('Rua G', 7, 'Bairro Z', 12345, 567, 7),
+    ('Rua H', 8, 'Bairro X', 23456, 890, 8),
+    ('Rua I', 9, 'Bairro Y', 34567, 123, 9),
+    ('Rua J', 10, 'Bairro Z', 45678, 456, 10);
+
+INSERT INTO PESSOA (id_pessoa, nome_pessoa, telefone, cpf, email, id_animal, FK_ENDERECO_id_endereco)
 VALUES
- (1, 'Andrea Cardoso', '27983293861', '286.464.205-07', 'andrea_card@gmail.com', 1),
- (2, 'Julia Teixeira de Castro', '27996997958', '530.949.381-67', 'juju_tex123@gmail.com', 3),
- (3, 'Luis Edson', '27999893304', '342.586.906-00', 'luisEd@yahoo.com.br', 1),
- (4, 'Elza Costa', '27999402349', '734.251.972-31', 'elza12344@gmail.com', 3);
+    (1, 'João', 123456789, 12345678900, 'joao@example.com', 1, 1),
+    (2, 'Maria', 987654321, 98765432100, 'maria@example.com', 2, 2),
+    (3, 'John Smith', 123456789, 11111111111, 'john@example.com', 3, 3),
+    (4, 'Jane Doe', 987654321, 22222222222, 'jane@example.com', 4, 4),
+    (5, 'Michael Johnson', 111222333, 33333333333, 'michael@example.com', 5, 5),
+    (6, 'Emily Williams', 444555666, 44444444444, 'emily@example.com', 6, 6),
+    (7, 'Christopher Brown', 777888999, 55555555555, 'christopher@example.com', 7, 7),
+    (8, 'Jessica Davis', 222333444, 66666666666, 'jessica@example.com', 8, 8),
+    (9, 'Daniel Wilson', 555666777, 77777777777, 'daniel@example.com', 9, 9),
+    (10, 'Olivia Taylor', 888999000, 88888888888, 'olivia@example.com', 10, 10);
 
-INSERT INTO ENDERECO VALUES(3,'Rua Loureiro Nunes',444, 204,'Mata da Praia','Vitória');
-
-INSERT INTO TIPO_TRATAMENTO(id_tratamento, descricao)
+INSERT INTO RACA (id_animal, nome_raca, id_raca, id_especie)
 VALUES
- ('1', 'vacinacao'),
- ('2', 'remedio'),
- ('3', 'castracao');
+    (1, 'Poodle', 1, 1),
+    (2, 'Sphynx', 2, 2),
+    (3, 'Labrador Retriver', 1, 1),
+    (4, 'Persa', 2, 2),
+    (5, 'Pastor Alemão', 3, 1),
+    (6, 'Siames', 4, 2),
+    (7, 'Golden Retriever', 5, 1),
+    (8, 'Maine Coon', 6, 2),
+    (9, 'Bulldog', 7, 1),
+    (10, 'Ragdoll', 8, 2);
 
-
-INSERT INTO ESPECIES values (1,'Cachorro');
-INSERT INTO ESPECIES values (2,'Gato');
-
-INSERT INTO FUNCIONARIO (codigo_funcionarios, nome_funcionario, telefone_funcionario, email_funcionario, ocupacao)
+INSERT INTO PELAGEM (id_animal, tipo_pelagem, id_pelagem)
 VALUES
-  (1, 'Isabel E.', '2799444756', 'isabelly123@gmail.com', 'Médica Veterinária'),
-  (2, 'Flávia M.', '2799291824', 'flaviaMS47@hotmail.com', 'Atendente'),
-  (3, 'Breno G.', '2798599222', 'breno_guigui@yahoo.com.br', 'Atendente');
-  
-INSERT INTO FUNCIONARIO (codigo_funcionarios, nome_funcionario, telefone_funcionario, email_funcionario, ocupacao)
+    
+    (1, 'Crespa', 1),
+    (2, 'Curta', 2),
+    (3, 'Curto', 1),
+    (4, 'Longo', 2),
+    (5, 'Médio', 3),
+    (6, 'Curto', 4),
+    (7, 'Dourado', 5),
+    (8, 'Branco', 6),
+    (9, 'Tigrado', 7),
+    (10, 'Laranja', 8);
+
+INSERT INTO Possui_ANIMAL_ESPECIE_RACA_PELAGEM (fk_ANIMAL_id_animal, fk_ESPECIE_id_especie, fk_RACA_id_raca, fk_PELAGEM_id_pelagem)
 VALUES
-  (4, 'Igor Daniel.', '27999495478', 'igor_sales@ifes.edu.br', 'Técnico de TI'),
-  (5, 'Antônia Sebastiana', '27994614738', 'antoniaSebas23@gmail.com', 'Cirugiã Veterinária'),
-  (6, 'Maitê Sara', '27983414394', 'maitêSaf@outlook.com', 'Técnica');
+    (1, 1, 1, 1),
+    (2, 2, 2, 2),
+    (3, 1, 1, 1),
+    (4, 2, 2, 2),
+    (5, 1, 3, 3),
+    (6, 2, 4, 4),
+    (7, 1, 5, 5),
+    (8, 2, 6, 6),
+    (9, 1, 7, 7),
+    (10, 2, 8, 8);
+
+INSERT INTO Procedimento (fk_ANIMAL_id_animal, fk_TIPO_TRATAMENTO_id_tratamento, descricao, data_hora, id_animal, id_tratamento)
+VALUES
+
+    (1, 1, 'Vacinação anual', '2022-03-01', 1, 1),
+    (2, 2, 'Cirurgia de esterilização', '2022-04-01', 2, 2),
+    (3, 3, 'Vacinação anual', '2022-03-15', 3, 3),
+    (4, 4, 'Esterilização', '2022-04-20', 4, 4),
+    (5, 5, 'Hemograma completo', '2022-05-25', 5, 5),
+    (6, 6, 'Limpeza dentária', '2022-06-30', 6, 6),
+    (7, 7, 'Reabilitação pós-operatória', '2022-07-05', 7, 7),
+    (8, 8, 'Banho e tosa', '2022-08-10', 8, 8),
+    (9, 9, 'Desparasitação interna e externa', '2022-09-15', 9, 9),
+    (10, 10, 'Consulta de rotina', '2022-10-20', 10, 10);
  
 ```
 
