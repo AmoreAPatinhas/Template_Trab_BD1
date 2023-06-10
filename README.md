@@ -403,20 +403,32 @@ VALUES
 
 #### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
 
-![arte 1](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/e861c29a-f43d-4b3a-a62d-b8a84c46ff4c)
+![WhatsApp Image 2023-06-10 at 8 08 29 PM](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/4cb68395-d7a3-4e39-a36a-be287c3a0fb6)
 --------------------------------------
-![arte 2](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/f77a01bf-129b-44ad-bee6-4014f215abc2)
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (1)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/13399622-5933-4c6f-ab55-3c83b1da4652)
 --------------------------------------
-![arte 3](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/56fc1328-4b98-4b4a-a217-bf0aa67a663a)
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (2)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/21285e27-a526-40fb-bdbf-650eae7f13e9)
 --------------------------------------
-![arte 4](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/15a3a05f-1918-4f79-b57a-0e9de792e83c)
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (3)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/a318a864-8617-43b4-8d16-6cbcb0fe47c1)
 --------------------------------------
-![arte 5](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/d715393c-d87f-4289-8b25-6c3d9170d010)
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (4)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/fb927fd0-df49-4af0-9bfa-7b890a387104)
+--------------------------------------
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (5)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/c468ca47-b101-44a8-8e12-6b424e3bfd04)
+--------------------------------------
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (6)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/a0328be8-a813-436a-a3b4-955743bc5fcb)
+--------------------------------------
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (7)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/ba266365-925d-44ec-b1fa-57550b376a2b)
+--------------------------------------
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (8)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/9a3893a2-6fae-4854-a15d-ff5d53c36eb2)
+--------------------------------------
+![WhatsApp Image 2023-06-10 at 8 08 29 PM (9)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/531b42b4-038d-44fe-a722-3680c5681db3)
 
 ># Marco de Entrega 01: Do item 1 até o item 9.1<br>
 
 #### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
+
 #### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
+
     a) Criar 5 consultas que envolvam os operadores lógicos AND, OR e Not
     b) Criar no mínimo 3 consultas com operadores aritméticos 
     c) Criar no mínimo 3 consultas com operação de renomear nomes de campos ou tabelas
