@@ -356,7 +356,22 @@ VALUES
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
+    
+    ```
+    delete from pelagem where tipo_pelagem = 'Pelagem curta';
+    delete from animal 
+    where codigo_pessoa in (select id_pessoa 
+                          from pessoa 
+                          where nome_pessoa = 'Julia Teixeira de Castro');
+   delete from especie where id_especie = 2;
+   delete from funcionario where codigo_funcionario > 5;
+   delete from procedimento where id_animal = 1;
+    
     b) Criar minimo 3 de atualização
+    update raca set nome_raca = 'Lhasa Apso' where nom_raca = 'Golden Retriver';
+    update animal set id_especie = 3 where id_animal = 1;
+    update animal_adotante set data_adocao = '2023-06-12' where codigo_adocao = 3;
+    update endereco set id_endereco = 3;
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
     a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
