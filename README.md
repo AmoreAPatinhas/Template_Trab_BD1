@@ -545,6 +545,10 @@ SELECT * FROM ANIMAL WHERE nome LIKE '%s';
     a) Criar minimo 2 envolvendo algum tipo de junção
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
+![select left join](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/130158423/e21762cb-f36f-43a8-bd2d-58fcc4ef9821)
+![select right join](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/130158423/fd03e549-283f-47b2-bc0b-279cb7073696)
+![select full join](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/130158423/bd708611-4139-45d3-b196-b93002b25a16)
+
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
