@@ -480,7 +480,6 @@ FROM Procedimento p;
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-
 ```
 SELECT * FROM PESSOA WHERE nome_pessoa LIKE 'J%';
 
@@ -510,63 +509,162 @@ SELECT * FROM ANIMAL WHERE nome LIKE '%s';
 
 ```
 
-
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-    a) Criar minimo 3 de exclusão
-    delete from pelagem where tipo_pelagem = 'Pelagem curta';
-    delete from animal 
-    where codigo_pessoa in (select id_pessoa 
-                          from pessoa 
-                          where nome_pessoa = 'Julia Teixeira de Castro');
-   delete from especie where id_especie = 2;
-   delete from funcionario where codigo_funcionario > 5;
-   delete from procedimento where id_animal = 1;
-    
-    b) Criar minimo 3 de atualização
-    update raca set nome_raca = 'Lhasa Apso' where nom_raca = 'Golden Retriver';
-    update animal set id_especie = 3 where id_animal = 1;
-    update animal_adotante set data_adocao = '2023-06-12' where codigo_adocao = 3;
-    update endereco set id_endereco = 3;
+```
+delete from pelagem where tipo_pelagem = 'Curto'; 
+
+delete from animal where fk_pessoa_id_pessoa in (select id_pessoa from pessoa 
+where nome_pessoa = 'Michael Johnson');
+
+delete from especie where id_especie = 2;
+
+delete from procedimento where id_animal = 1;
+
+update raca set nome_raca = 'Lhasa Apso' where nome_raca = 'Golden Retriever';
+
+update endereco set numero = 3 where numero = 20;
+
+update animal set id_especie = 3 where id_animal = 1;
+
+update pessoa set nome_pessoa = 'Isabella S' where id_animal = 3;
+
+```
 
 #### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-    a) Uma junção que envolva todas as tabelas possuindo no mínimo 2 registros no resultado
-    b) Outras junções que o grupo considere como sendo as de principal importância para o trabalho
+```
+SELECT A.*, PE.nome_pessoa, P.*, TP.*
+FROM animal A
+INNER JOIN pessoa PE ON A.fk_pessoa_id_pessoa = PE.id_pessoa
+INNER JOIN procedimento P ON A.id_animal = P.id_animal
+INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tratamento
+ORDER BY P.data_hora;
+
+SELECT A.*, P.*, TP.*, PE.*, PU.*, F.*, E.*, PEL.*, R.*, EN.*
+FROM animal A 
+INNER JOIN procedimento P ON A.id_animal = P.id_animal
+INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tratamento
+INNER JOIN pessoa PE ON A.fk_pessoa_id_pessoa = PE.id_pessoa
+INNER JOIN funcionario F ON A.fk_funcionario_id_funcionario = F.id_funcionario
+INNER JOIN possui_animal_especie_raca_pelagem PU ON A.id_animal = PU.fk_animal_id_animal
+INNER JOIN especie E ON A.id_especie = E.id_especie
+INNER JOIN pelagem PEL ON A.id_animal = PEL.id_animal
+INNER JOIN raca R ON A.id_animal = R.id_animal
+INNER JOIN endereco EN ON PE.fk_endereco_id_endereco = EN.id_endereco
+ORDER BY A.id_animal;
+
+```
 
 #### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-    a) Criar minimo 2 envolvendo algum tipo de junção
+```
+SELECT * FROM pessoa GROUP BY nome_pessoa, id_pessoa;
+
+``` 
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
-![select left join](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/130158423/e21762cb-f36f-43a8-bd2d-58fcc4ef9821)
-![select right join](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/130158423/fd03e549-283f-47b2-bc0b-279cb7073696)
-![select full join](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/130158423/bd708611-4139-45d3-b196-b93002b25a16)
-
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-    a) Criar minimo 1 de cada tipo
+``` 
+SELECT ANIMAL.nome, TIPO_TRATAMENTO.descricao
+FROM ANIMAL
+LEFT JOIN Procedimento ON ANIMAL.id_animal = Procedimento.fk_ANIMAL_id_animal
+LEFT JOIN TIPO_TRATAMENTO ON Procedimento.fk_TIPO_TRATAMENTO_id_tratamento = TIPO_TRATAMENTO.id_tratamento;
+
+SELECT TIPO_TRATAMENTO.descricao, ANIMAL.nome
+FROM ANIMAL
+RIGHT JOIN Procedimento ON ANIMAL.id_animal = Procedimento.fk_ANIMAL_id_animal
+RIGHT JOIN TIPO_TRATAMENTO ON Procedimento.fk_TIPO_TRATAMENTO_id_tratamento = TIPO_TRATAMENTO.id_tratamento;
+
+SELECT ANIMAL.nome, TIPO_TRATAMENTO.descricao
+FROM ANIMAL
+FULL JOIN Procedimento ON ANIMAL.id_animal = Procedimento.fk_ANIMAL_id_animal
+FULL JOIN TIPO_TRATAMENTO ON Procedimento.fk_TIPO_TRATAMENTO_id_tratamento = TIPO_TRATAMENTO.id_tratamento;
+
+```
 
 #### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-        a) Uma junção que envolva Self Join (caso não ocorra na base justificar e substituir por uma view)
-        b) Outras junções com views que o grupo considere como sendo de relevante importância para o trabalho
+```
+create view funcionario_e_ocupacao as
+select id_funcionario,ocupacao
+from funcionario;
+
+SELECT * FROM funcionario_e_ocupacao;
+
+create view animal_e_porte as
+select nome,porte
+from animal
+order by porte;
+
+SELECT * FROM animal_e_porte;
+
+create view funcionarios_por_ocupacao as
+select f1.ocupacao, count(f2.id_funcionario) as quantidade_funcionarios
+from funcionario f1
+join funcionario f2 ON f1.ocupacao = f2.ocupacao
+group by f1.ocupacao;
+
+SELECT * FROM funcionarios_por_ocupacao;
+
+SELECT e1.nome_rua, COUNT(e2.id_endereco) as quantidade_enderecos
+FROM endereco e1
+JOIN endereco e2 ON e1.nome_rua = e2.nome_rua
+GROUP BY e1.nome_rua;
+
+create view pessoas_mesmo_endereco as
+select p1.nome_pessoa, p2.nome_pessoa as nome_pessoa_relacionada
+from pessoa p1
+join pessoa p2 on p1.fk_endereco_id_endereco = p2.fk_endereco_id_endereco
+where p1.id_pessoa <> p2.id_pessoa;
+
+SELECT * FROM pessoas_mesmo_endereco;
+
+SELECT p1.id_animal, COUNT(p2.id_animal) as quantidade_procedimentos
+FROM Procedimento p1
+JOIN Procedimento p2 ON p1.fk_animal_id_animal = p2.fk_animal_id_animal
+GROUP BY p1.id_animal;
+
+```
 
 #### 9.10	SUBCONSULTAS (Mínimo 4)<br>
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-     a) Criar minimo 1 envolvendo GROUP BY
-     b) Criar minimo 1 envolvendo algum tipo de junção
+```
+SELECT *
+FROM animal
+WHERE fk_funcionario_id_funcionario NOT IN (
+    SELECT DISTINCT fk_funcionario_id_funcionario
+    FROM animal
+    WHERE porte <> 'Pequeno'
+);
+
+SELECT *
+FROM funcionario
+WHERE id_funcionario IN (
+    SELECT DISTINCT id_funcionario
+    FROM funcionario
+    WHERE ocupacao = 'Atendente'
+);
+
+SELECT *
+FROM funcionario
+WHERE ocupacao IN ('Atendente', 'Groomer');
+
+```
+
+
 
 ># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
 
