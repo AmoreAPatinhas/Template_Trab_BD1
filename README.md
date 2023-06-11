@@ -439,8 +439,6 @@ VALUES
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
     a) Criar minimo 3 de exclusão
-    
-    ```
     delete from pelagem where tipo_pelagem = 'Pelagem curta';
     delete from animal 
     where codigo_pessoa in (select id_pessoa 
