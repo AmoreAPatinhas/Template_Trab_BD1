@@ -431,9 +431,85 @@ VALUES
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
+```
+SELECT p.nome_pessoa, p.cpf, a.porte
+FROM PESSOA p
+JOIN ANIMAL a ON p.id_animal = a.id_animal
+WHERE p.cpf < 50000000000 AND a.porte = 'Pequeno'
+
+SELECT nome, porte FROM ANIMAL
+WHERE porte = 'Pequeno' OR porte = 'Médio'
+    
+SELECT nome_pessoa FROM PESSOA 
+WHERE id_animal IS NOT NULL
+
+SELECT nome, porte, data_chegada
+FROM ANIMAL
+WHERE porte = 'Pequeno' AND data_chegada > '2022-01-01'
+
+SELECT nome, porte, data_chegada
+FROM ANIMAL
+WHERE porte = 'Pequeno' OR data_chegada < '2022-01-01'
+
+SELECT * FROM ANIMAL WHERE id_animal > 5 AND id_animal <= 8;
+
+SELECT a.* FROM ANIMAL a
+JOIN PESSOA p ON a.FK_PESSOA_id_pessoa = p.id_pessoa
+WHERE p.telefone % 2 = 0;
+
+SELECT *
+FROM ANIMAL
+WHERE EXTRACT(YEAR FROM AGE(CURRENT_DATE, data_chegada)) > 0;
+
+SELECT a.nome AS nome_animal, p.nome_pessoa AS responsavel
+FROM ANIMAL a
+JOIN PESSOA p ON a.FK_PESSOA_id_pessoa = p.id_pessoa;
+
+SELECT e.nome_rua AS rua, e.numero AS numero_endereco
+FROM ANIMAL a
+JOIN PESSOA p ON a.FK_PESSOA_id_pessoa = p.id_pessoa
+JOIN ENDERECO e ON p.FK_ENDERECO_id_endereco = e.id_endereco
+WHERE p.cpf = 11111111111;
+
+SELECT p.descricao AS tratamento, p.data_hora AS data
+FROM Procedimento p;
+
+```
+
 #### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+
+
+```
+SELECT * FROM PESSOA WHERE nome_pessoa LIKE 'J%';
+
+SELECT * FROM ANIMAL WHERE nome LIKE '%o%';
+
+SELECT * FROM RACA WHERE nome_raca LIKE '%Retriever%' AND id_especie = 1;
+
+SELECT * FROM TIPO_TRATAMENTO WHERE descricao ILIKE '%vacina%';
+
+SELECT * FROM PESSOA WHERE email LIKE '%@example.com';
+
+SELECT * FROM ANIMAL WHERE data_chegada > '2022-06-01';
+
+SELECT * FROM Procedimento WHERE data_hora < '2022-05-01';
+
+SELECT * FROM PESSOA WHERE CAST(cpf AS TEXT) LIKE '11111111111%';
+
+SELECT * FROM ANIMAL
+WHERE id_animal IN (SELECT fk_ANIMAL_id_animal FROM Procedimento 
+WHERE EXTRACT(MONTH FROM data_hora) = 3 AND EXTRACT(YEAR FROM data_hora) = 2022);
+
+SELECT * FROM PROCEDIMENTO WHERE EXTRACT(DAY FROM data_hora) = 15;
+
+SELECT * FROM PESSOA WHERE CAST(telefone as text) LIKE '%555%';
+
+SELECT * FROM ANIMAL WHERE nome LIKE '%s';
+
+```
+
 
 #### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
 
