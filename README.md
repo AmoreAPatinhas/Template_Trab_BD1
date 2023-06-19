@@ -116,10 +116,12 @@ Relacionamentos Principais:
  * ESPÉCIE: Identifica se o animal que chegou é Cachorro ou Gato
 
  * ENDEREÇO: Serve para identificarmos o endereço do funcionário e do adotante para segurança do abrigo
-
- * ADOTANTE: código do adotante, nome do adotante, cpf, email, endereço
-
- * ANIMAL ADOTANTE: código a adoção, código do adotante, código do animal, data da adoção
+ 
+ * PESSOA: código da pessoa, nome da pessoa, telefone, cpf, email, código do animal
+ 
+ * RAÇA: Identifica qual é a raça do animal
+ 
+ * PELAGEM: Identifica o tipo de pelagem do animal
 
  * PROCEDIMENTO: código do procedimento, código do animal, descrição e data
 
