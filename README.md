@@ -618,6 +618,10 @@ SELECT *
 FROM funcionario
 WHERE ocupacao IN ('Atendente', 'Groomer');
 
+SELECT id_animal, nome, porte, id_especie
+FROM animal
+WHERE id_especie IN (1);
+
 ```
 
 
