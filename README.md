@@ -32,14 +32,20 @@ O sistema deve possibilitar que o administrador ou o voluntário gere uma ficha,
 
 #### 4.1 RASCUNHOS BÁSICOS DA INTERFACE (MOCKUPS)<br>
 
-> Menu e login
+> Abertura, login e Menu
+<div>
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131457_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131502_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131506_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+</div>
 
-![Captura de tela 2023-05-31 102636](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/3c345d7a-b359-4c93-9806-3d53029db0bf)
+> CRUD - Visualizar animais
 
-
-> Menu principal e Edição de dados
-
-![Captura de tela 2023-05-31 102707](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/3b2eb39c-4632-43a9-94d4-135a52772688)
+<div>
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131513_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131520_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="" alt="demo" height="425">
+</div>
 
 
 > Informações do animal e dados médicos de cada
