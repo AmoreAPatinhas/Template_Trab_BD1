@@ -155,7 +155,7 @@ Relacionamentos Principais:
 
 
 ### 6	MODELO LÓGICO<br>
-![Captura de tela 2023-06-08 193519](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/95357142/049bdf2b-b4dc-4c57-bdb3-5782820fce0e)
+![modelocerto!](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/ab6cbe5e-9ee5-4256-9e54-6152a3a95c14)
 
 
 ### 7	MODELO FÍSICO<br>
