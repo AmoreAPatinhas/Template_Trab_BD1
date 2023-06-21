@@ -37,6 +37,7 @@ O sistema deve possibilitar que o administrador ou o voluntário gere uma ficha,
   <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131457_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
   <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131502_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
   <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131506_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+
 </div>
 
 > CRUD - Visualizar animais
@@ -44,23 +45,42 @@ O sistema deve possibilitar que o administrador ou o voluntário gere uma ficha,
 <div>
   <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131513_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
   <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131520_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
-  <img src="" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/imagem_2023-06-21_105024680.png?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/imagem_2023-06-21_101300283.png?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/imagem_2023-06-21_104834464.png?raw=true" alt="demo" height="425">
+  
+
 </div>
 
 
-> Informações do animal e dados médicos de cada
-
-![Captura de tela 2023-05-31 102743](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/22398020-9125-4c7a-b781-c95fb1e93d0d)
+> Dados médicos do animal
+<div>
+ <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131544_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+ <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131541_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+ <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131548_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+</div>
 
  
-> Cronograma de tratamentos e agendamentos
+> CRUD - Visualizar Voluntários
 
-![Captura de tela 2023-05-31 102810](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/cc5b94c9-dee6-42ec-bb6d-1378a3dfd9ad)
+<div>
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131645_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131655_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_131754_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_133039_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_132958_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  
 
+</div>
 
-> Cadastrar animal e voluntário
-
-![Captura de tela 2023-05-31 102926](https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/assets/95357142/016d7c83-162f-4257-b317-8391200cf82c)
+> CRUD - Visualizar Adoções
+<div>
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_132028_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_132033_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/Screenshot_20230620_132043_Samsung%20Internet.jpg?raw=true" alt="demo" height="425">
+  <img src="https://github.com/AmoreAPatinhas/TrabalhoBancoDeDados/blob/main/imagens/imagem_2023-06-21_121919201.png?raw=true" alt="demo" height="425">
+	
+</div>
 
 #### 4.2 QUAIS PERGUNTAS PODEM SER RESPONDIDAS COM O SISTEMA PROPOSTO?
     
