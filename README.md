@@ -543,8 +543,23 @@ ORDER BY A.id_animal;
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
 ```
-SELECT * FROM pessoa GROUP BY nome_pessoa, id_pessoa;
+SELECT * FROM pessoa GROUP BY nome_pessoa
 
+SELECT * FROM animal GROUP BY nome
+
+SELECT * FROM endereco GROUP BY nome_rua
+
+SELECT * FROM especie GROUP BY tipo_especie
+
+SELECT * FROM funcionario GROUP BY ocupacao
+
+SELECT * FROM pelagem GROUP BY tipo_pelagem
+
+SELECT * FROM procedimento GROUP BY descricao
+
+SELECT * FROM raca GROUP BY nome_raca
+
+SELECT * FROM tipo_tratamento GROUP BY descricao
 ``` 
 
 #### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
