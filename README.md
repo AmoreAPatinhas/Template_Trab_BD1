@@ -171,84 +171,81 @@ CREATE TABLE PESSOA (
     email varchar(100),
     id_animal integer,
     FK_ENDERECO_id_endereco integer,
-		FOREIGN KEY (FK_ENDERECO_id_endereco) REFERENCES ENDERECO(id_endereco)
+    FOREIGN KEY (FK_ENDERECO_id_endereco) REFERENCES ENDERECO(id_endereco)
 );
 
 
 CREATE TABLE FUNCIONARIO(
     id_funcionario integer PRIMARY KEY,
-		FK_PESSOA_id_pessoa INT,
-		ocupacao VARCHAR(50),
-		FOREIGN KEY (FK_PESSOA_id_pessoa) REFERENCES PESSOA(id_pessoa)
+    FK_PESSOA_id_pessoa INT,
+    ocupacao VARCHAR(50),
+    FOREIGN KEY (FK_PESSOA_id_pessoa) REFERENCES PESSOA(id_pessoa)
 		
     
   );
   
- CREATE TABLE ANIMAL(
+CREATE TABLE ANIMAL(
     id_animal integer PRIMARY KEY,
     nome varchar(100),
     data_chegada date,
     id_especie integer,
     porte varchar(100),
     FK_PESSOA_id_pessoa integer,
-    FK_FUNCIONARIO_id_funcionario integer,
-    FK_FUNCIONARIO_FK_PESSOA_id_pessoa integer
-		FOREIGN KEY (FK_PESSOA_id_pessoa) REFERENCES PESSOA(id_pessoa),
-		FOREIGN KEY (FK_FUNCIONARIO_id_funcionario) REFERENCES FUNCIONARIO(id_funcionario)
+    id_especie integer,
+    id_raca integer,
+    id_pelagem integer,
+    FOREIGN KEY (FK_PESSOA_id_pessoa) REFERENCES PESSOA(id_pessoa),
+    FOREIGN KEY (id_especie) REFERENCES ESPECIE(id_especie),
+    FOREIGN KEY (id_raca) REFERENCES RACA(id_raca),
+    FOREIGN KEY (id_pelagem) REFERENCES PELAGEM(id_pelagem)
   );
 
   
-  CREATE TABLE ESPECIE(
+CREATE TABLE ESPECIE(
     id_especie integer PRIMARY KEY,
-		FK_ANIMAL_id_animal integer,
-    tipo_especie text,
-		FOREIGN KEY (id_animal) REFERENCES ANIMAL(id_animal)
+    FK_ANIMAL_id_animal integer,
+    tipo_especie text
       
 );
 
-	CREATE TABLE TIPO_TRATAMENTO(
-     descricao VARCHAR(100),
-	   id_tratamento integer PRIMARY KEY
+CREATE TABLE TIPO_TRATAMENTO(
+    descricao VARCHAR(100),
+    id_tratamento integer PRIMARY KEY
     
 );
 
-	CREATE TABLE PROCEDIMENTO(
+CREATE TABLE PROCEDIMENTO(
     fk_ANIMAL_id_animal integer,
     fk_TIPO_TRATAMENTO_id_tratamento integer,
     descricao text,
     data_hora date,
     id_animal integer,
     id_tratamento integer
-		FOREIGN KEY (fk_ANIMAL_id_animal) REFERENCES ANIMAL(id_animal),
-		FOREIGN KEY (fk_TIPO_TRATAMENTO_id_tratamento) REFERENCES TIPO_TRATAMENTO(id_tipo_tratamento),
+   FOREIGN KEY (fk_ANIMAL_id_animal) REFERENCES ANIMAL(id_animal),
+   FOREIGN KEY (fk_TIPO_TRATAMENTO_id_tratamento) REFERENCES TIPO_TRATAMENTO(id_tipo_tratamento)
     
 );
 
 CREATE TABLE RACA (
-    fk_ANIMAL_id_animal integer,
     nome_raca text,
     id_raca integer PRIMARY KEY,
-    id_especie integer,
-    FOREIGN KEY (fk_ANIMAL_id_animal) REFERENCES ANIMAL(id_animal)
+    id_especie integer
 		
 );
 
 CREATE TABLE PELAGEM (
-    fk_ANIMAL_id_animal integer,
     tipo_pelagem text,
-    id_pelagem integer PRIMARY KEY,
-    FOREIGN KEY (fk_ANIMAL_id_animal) REFERENCES ANIMAL(id_animal)
+    id_pelagem integer PRIMARY KEY
 );
 
 
 
-	CREATE TABLE ENDERECO(
+CREATE TABLE ENDERECO(
     nome_rua VARCHAR(150),
     id_endereco integer PRIMARY KEY,
     bairro VARCHAR(150),
     cep integer,
-    numero integer,
-    id_pessoa integer
+    numero integer
 		
   );
 
