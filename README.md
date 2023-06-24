@@ -528,16 +528,15 @@ ORDER BY P.data_hora;
 
 SELECT A.*, P.*, TP.*, PE.*, F.*, E.*, PEL.*, R.*, EN.*
 FROM animal A 
-INNER JOIN procedimento P ON A.id_animal = P.id_animal
-INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tratamento
-INNER JOIN pessoa PE ON A.fk_pessoa_id_pessoa = PE.id_pessoa
-INNER JOIN funcionario F ON PE.id_pessoa = F.id_pessoa
+INNER JOIN procedimento P ON A.id_animal = P.fk_ANIMAL_id_animal
+INNER JOIN tipo_tratamento TP ON P. fk_TIPO_TRATAMENTO_id_tratamento = TP.id_tipo_tratamento
+INNER JOIN pessoa PE ON A. FK_PESSOA_id_pessoa = PE.id_pessoa
+INNER JOIN funcionario F ON PE.id_pessoa = F.FK_PESSOA_id_pessoa
 INNER JOIN especie E ON A.id_especie = E.id_especie
 INNER JOIN pelagem PEL ON A.id_pelagem = PEL.id_pelagem
 INNER JOIN raca R ON A.id_raca = R.id_raca
-INNER JOIN endereco EN ON PE.fk_endereco_id_endereco = EN.id_endereco
+INNER JOIN endereco EN ON PE. FK_ENDERECO_id_endereco = EN.id_endereco
 ORDER BY A.nome;
-
 
 ```
 
