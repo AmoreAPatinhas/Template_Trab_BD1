@@ -517,12 +517,14 @@ update pessoa set nome_pessoa = 'Isabella S' where id_animal = 3;
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
 ```
-SELECT A.*, PE.nome_pessoa, P.*, TP.*
+SELECT A.*, PE.nome_pessoa,F.*, P.*, TP.*
 FROM animal A
 INNER JOIN pessoa PE ON A.fk_pessoa_id_pessoa = PE.id_pessoa
+INNER JOIN funcionario F ON A.FK_PESSOA_id_pessoa = F.FK_PESSOA_id_pessoa
 INNER JOIN procedimento P ON A.id_animal = P.id_animal
 INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tratamento
 ORDER BY P.data_hora;
+
 
 SELECT A.*, P.*, TP.*, PE.*, F.*, E.*, PEL.*, R.*, EN.*
 FROM animal A 
@@ -533,8 +535,7 @@ INNER JOIN funcionario F ON PE.id_pessoa = F.id_pessoa
 INNER JOIN especie E ON A.id_especie = E.id_especie
 INNER JOIN pelagem PEL ON A.id_pelagem = PEL.id_pelagem
 INNER JOIN raca R ON A.id_raca = R.id_raca
-INNER JOIN endereco EN ON PE.fk_endereco_id_endereco = EN.id_endereco
-ORDER BY A.id_animal;
+INNER JOIN endereco EN ON PE.fk_endereco_id_endereco = EN.id_endereco;
 
 ```
 
