@@ -535,7 +535,9 @@ INNER JOIN funcionario F ON PE.id_pessoa = F.id_pessoa
 INNER JOIN especie E ON A.id_especie = E.id_especie
 INNER JOIN pelagem PEL ON A.id_pelagem = PEL.id_pelagem
 INNER JOIN raca R ON A.id_raca = R.id_raca
-INNER JOIN endereco EN ON PE.fk_endereco_id_endereco = EN.id_endereco;
+INNER JOIN endereco EN ON PE.fk_endereco_id_endereco = EN.id_endereco
+ORDER BY A.nome;
+
 
 ```
 
