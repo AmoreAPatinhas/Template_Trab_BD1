@@ -456,6 +456,59 @@ VALUES
 (49, 'Penny', '2026-09-21', 1, 'Pequeno', 49, 49, 49),
 (50, 'Zeus', '2026-10-18', 2, 'Médio', 50, 50, 50);
 
+INSERT INTO PESSOA (id_pessoa, nome_pessoa, telefone, cpf, email, id_animal, FK_ENDERECO_id_endereco)
+VALUES
+(1, 'João Silva', 987654321, 12345678901, 'joao.silva@example.com', 1, 1),
+(2, 'Maria Santos', 987654322, 23456789012, 'maria.santos@example.com', 2, 2),
+(3, 'Pedro Oliveira', 987654323, 34567890123, 'pedro.oliveira@example.com', 3, 3),
+(4, 'Ana Rodrigues', 987654324, 45678901234, 'ana.rodrigues@example.com', 4, 4),
+(5, 'Carlos Santos', 987654325, 56789012345, 'carlos.santos@example.com', 5, 5),
+(6, 'Mariana Lima', 987654326, 67890123456, 'mariana.lima@example.com', 6, 6),
+(7, 'Rafael Souza', 987654327, 78901234567, 'rafael.souza@example.com', 7, 7),
+(8, 'Fernanda Almeida', 987654328, 89012345678, 'fernanda.almeida@example.com', 8, 8),
+(9, 'Ricardo Ferreira', 987654329, 90123456789, 'ricardo.ferreira@example.com', 9, 9),
+(10, 'Patricia Gomes', 987654330, 12345678901, 'patricia.gomes@example.com', 10, 10),
+(11, 'Gustavo Costa', 987654331, 23456789012, 'gustavo.costa@example.com', 11, 11),
+(12, 'Amanda Pereira', 987654332, 34567890123, 'amanda.pereira@example.com', 12, 12),
+(13, 'Felipe Santos', 987654333, 45678901234, 'felipe.santos@example.com', 13, 13),
+(14, 'Larissa Oliveira', 987654334, 56789012345, 'larissa.oliveira@example.com', 14, 14),
+(15, 'Rodrigo Lima', 987654335, 67890123456, 'rodrigo.lima@example.com', 15, 15),
+(16, 'Camila Silva', 987654336, 78901234567, 'camila.silva@example.com', 16, 1),
+(17, 'Alexandre Souza', 987654337, 89012345678, 'alexandre.souza@example.com', 17, 2),
+(18, 'Isabela Almeida', 987654338, 90123456789, 'isabela.almeida@example.com', 18, 3),
+(19, 'Lucas Ferreira', 987654339, 12345678901, 'lucas.ferreira@example.com', 19, 4),
+(20, 'Laura Gomes', 987654340, 23456789012, 'laura.gomes@example.com', 20, 5),
+(21, 'Bruno Pereira', 987654341, 34567890123, 'bruno.pereira@example.com', 21, 6),
+(22, 'Vanessa Santos', 987654342, 45678901234, 'vanessa.santos@example.com', 22, 7),
+(23, 'Tiago Lima', 987654343, 56789012345, 'tiago.lima@example.com', 23, 8),
+(24, 'Aline Oliveira', 987654344, 67890123456, 'aline.oliveira@example.com', 24, 9),
+(25, 'Marcelo Souza', 987654345, 78901234567, 'marcelo.souza@example.com', 25, 10),
+(26, 'Carolina Almeida', 987654346, 89012345678, 'carolina.almeida@example.com', 26, 11),
+(27, 'Gabriel Ferreira', 987654347, 90123456789, 'gabriel.ferreira@example.com', 27, 12),
+(28, 'Natália Gomes', 987654348, 12345678901, 'natalia.gomes@example.com', 28, 13),
+(29, 'Henrique Pereira', 987654349, 23456789012, 'henrique.pereira@example.com', 29, 14),
+(30, 'Sabrina Santos', 987654350, 34567890123, 'sabrina.santos@example.com', 30, 15),
+(31, 'Daniel Lima', 987654351, 45678901234, 'daniel.lima@example.com', 31, 1),
+(32, 'Mariana Oliveira', 987654352, 56789012345, 'mariana.oliveira@example.com', 32, 2),
+(33, 'Pedro Souza', 987654353, 67890123456, 'pedro.souza@example.com', 33, 3),
+(34, 'Bianca Almeida', 987654354, 78901234567, 'bianca.almeida@example.com', 34, 4),
+(35, 'Rafaela Ferreira', 987654355, 89012345678, 'rafaela.ferreira@example.com', 35, 5),
+(36, 'Lucas Gomes', 987654356, 90123456789, 'lucas.gomes@example.com', 36, 6),
+(37, 'Fernanda Pereira', 987654357, 12345678901, 'fernanda.pereira@example.com', 37, 7),
+(38, 'Ricardo Santos', 987654358, 23456789012, 'ricardo.santos@example.com', 38, 8),
+(39, 'Amanda Lima', 987654359, 34567890123, 'amanda.lima@example.com', 39, 9),
+(40, 'Felipe Oliveira', 987654360, 45678901234, 'felipe.oliveira@example.com', 40, 10),
+(41, 'Larissa Souza', 987654361, 56789012345, 'larissa.souza@example.com', 41, 11),
+(42, 'Rodrigo Almeida', 987654362, 67890123456, 'rodrigo.almeida@example.com', 42, 12),
+(43, 'Camila Ferreira', 987654363, 78901234567, 'camila.ferreira@example.com', 43, 13),
+(44, 'Alexandre Gomes', 987654364, 89012345678, 'alexandre.gomes@example.com', 44, 14),
+(45, 'Isabela Pereira', 987654365, 90123456789, 'isabela.pereira@example.com', 45, 15),
+(46, 'Lucas Santos', 987654366, 12345678901, 'lucas.santos@example.com', 46, 1),
+(47, 'Laura Lima', 987654367, 23456789012, 'laura.lima@example.com', 47, 2),
+(48, 'Bruno Oliveira', 987654368, 34567890123, 'bruno.oliveira@example.com', 48, 3),
+(49, 'Vanessa Souza', 987654369, 45678901234, 'vanessa.souza@example.com', 49, 4),
+(50, 'Tiago Almeida', 987654370, 56789012345, 'tiago.almeida@example.com', 50, 5);
+
 INSERT INTO FUNCIONARIO (id_funcionario, FK_PESSOA_id_pessoa, ocupacao)
 VALUES
 (1, 1, 'Veterinário'),
@@ -508,6 +561,26 @@ VALUES
 (48, 48, 'Auxiliar de Limpeza'),
 (49, 49, 'Veterinário'),
 (50, 50, 'Recepcionista');
+
+INSERT INTO ENDERECO (nome_rua, id_endereco, bairro, cep, numero)
+VALUES
+('Rua A', 1, 'Centro', 12345678, 10),
+('Rua B', 2, 'Bairro X', 23456789, 20),
+('Rua C', 3, 'Bairro Y', 34567890, 30),
+('Rua D', 4, 'Bairro Z', 45678901, 40),
+('Rua E', 5, 'Bairro W', 56789012, 50),
+('Rua F', 6, 'Bairro V', 67890123, 60),
+('Rua G', 7, 'Bairro U', 78901234, 70),
+('Rua H', 8, 'Bairro T', 89012345, 80),
+('Rua I', 9, 'Bairro S', 90123456, 90),
+('Rua J', 10, 'Bairro R', 12345670, 100),
+('Rua K', 11, 'Bairro Q', 23456780, 110),
+('Rua L', 12, 'Bairro P', 34567890, 120),
+('Rua M', 13, 'Bairro O', 45678900, 130),
+('Rua N', 14, 'Bairro N', 56789010, 140),
+('Rua O', 15, 'Bairro M', 67890120, 150);
+
+
 ```
 
 ### 9 TABELAS E PRINCIPAIS CONSULTAS<br>
