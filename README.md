@@ -517,13 +517,53 @@ update pessoa set nome_pessoa = 'Isabella S' where id_animal = 3;
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
 ```
-SELECT A.*, PE.nome_pessoa,F.*, P.*, TP.*
+CONSULTA 1:
+SELECT A.*, PE.nome_pessoa, F.ocupacao,P.*, TP.*
 FROM animal A
-INNER JOIN pessoa PE ON A.fk_pessoa_id_pessoa = PE.id_pessoa
+INNER JOIN pessoa PE ON A.FK_PESSOA_id_pessoa = PE.id_pessoa
 INNER JOIN funcionario F ON A.FK_PESSOA_id_pessoa = F.FK_PESSOA_id_pessoa
-INNER JOIN procedimento P ON A.id_animal = P.id_animal
-INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tratamento
+INNER JOIN procedimento P ON A.id_animal = P.fk_ANIMAL_id_animal
+INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tipo_tratamento
 ORDER BY P.data_hora;
+
+CONSULTA 2:
+SELECT E.*,PE.*, A.*,R.*,P.*,ES.* 
+FROM animal A 
+INNER JOIN pessoa PE ON PE.id_pessoa = A.FK_PESSOA_id_pessoa
+INNER JOIN endereco E ON E.id_endereco = PE.FK_ENDERECO_id_endereco
+INNER JOIN raca R ON R.id_raca = A.id_raca
+INNER JOIN pelage P ON P.id_pelagem = A.id_pelagem
+INNER JOIN especie ES ON ES.id_especie = A.id_especie
+ORDER BY A.data_chegada;
+
+CONSULTA 3:
+SELECT A.nome, R.nome_raca, P.tipo_pelagem, E.tipo_especie
+FROM animal A
+INNER JOIN raca R ON A.id_raca = R.id_raca
+INNER JOIN pelagem P ON A.id_pelagem = P.id_pelagem
+INNER JOIN especie E ON A.id_especie = E.id_especie
+ORDER BY id_animal;
+
+CONSULTA 4:
+SELECT E.*, P.*
+FROM PESSOA P
+INNER JOIN endereco E ON P.FK_ENDERECO_id_endereco = E.id_endereco
+ORDER BY P.nome_pessoa;
+
+CONSULTA 5:
+SELECT A.nome, P.data_hora, TP_descricao
+FROM procediemnto P
+INNER JOIN animal A ON  P.fk_ANIMAL_id_animal = A.id_animal
+INNER JOIN tipo_tratamento TP ON P.fk_TIPO_TRATAMENTO_id_tratamento = TP.id_tipo_tratamento
+ORDER BY P.data_hora;
+
+CONSULTA 6:
+SELECT P.*, F.ocupacao
+FROM funcionario F
+INNER JOIN pessoa P ON F.FK_PESSOA_id_pessoa = P.id_pessoa
+ORDER BY F.descricao;
+
+
 
 
 SELECT A.*, P.*, TP.*, PE.*, F.*, E.*, PEL.*, R.*, EN.*
