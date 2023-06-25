@@ -255,6 +255,7 @@ CREATE TABLE ENDERECO(
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 
 ```
+
 INSERT INTO ESPECIE (id_especie, FK_ANIMAL_id_animal, tipo_especie)
 VALUES
 (1, 1, 'Cachorro'),
@@ -579,7 +580,6 @@ VALUES
 ('Rua M', 13, 'Bairro O', 45678900, 130),
 ('Rua N', 14, 'Bairro N', 56789010, 140),
 ('Rua O', 15, 'Bairro M', 67890120, 150);
-
 
 ```
 
