@@ -615,10 +615,12 @@ SELECT ANIMAL.nome, PESSOA.nome_pessoa
 FROM ANIMAL
 RIGHT JOIN PESSOA ON PESSOA.id_pessoa = ANIMAL.FK_PESSOA_id_pessoa;
 
-SELECT PESSOA.id_pessoa, PESSOA.nome_pessoa, FUNCIONARIO.ocupacao
+SELECT PESSOA.id_pessoa, PESSOA.nome_pessoa, ANIMAL.nome AS nome_animal, ESPECIE.tipo_especie, RACA.nome_raca, PELAGEM.tipo_pelagem
 FROM PESSOA
-FULL JOIN FUNCIONARIO ON PESSOA.id_pessoa = FUNCIONARIO.FK_PESSOA_id_pessoa
-WHERE PESSOA.id_pessoa IS NOT NULL OR FUNCIONARIO.id_funcionario IS NOT NULL;
+FULL JOIN ANIMAL ON PESSOA.id_pessoa = ANIMAL.FK_PESSOA_id_pessoa
+FULL JOIN ESPECIE ON ANIMAL.id_especie = ESPECIE.id_especie
+FULL JOIN RACA ON ANIMAL.id_raca = RACA.id_raca
+FULL JOIN PELAGEM ON ANIMAL.id_pelagem = PELAGEM.id_pelagem;
 
 SELECT PESSOA.id_pessoa, PESSOA.nome_pessoa, ANIMAL.nome AS nome_animal, ESPECIE.tipo_especie
 FROM PESSOA
