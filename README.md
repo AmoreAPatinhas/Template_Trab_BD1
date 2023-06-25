@@ -210,7 +210,7 @@ CREATE TABLE ESPECIE(
 
 CREATE TABLE TIPO_TRATAMENTO(
     descricao VARCHAR(100),
-    id_tratamento integer PRIMARY KEY
+    id_tipo_tratamento integer PRIMARY KEY
     
 );
 
@@ -255,180 +255,335 @@ CREATE TABLE ENDERECO(
 ### 8	INSERT APLICADO NAS TABELAS DO BANCO DE DADOS<br>
 
 ```
-INSERT INTO ANIMAL (id_animal, nome, data_chegada, id_especie, porte, FK_PESSOA_id_pessoa, FK_FUNCIONARIO_id_funcionario, FK_FUNCIONARIO_FK_PESSOA_id_pessoa)
+INSERT INTO ESPECIE (id_especie, FK_ANIMAL_id_animal, tipo_especie)
 VALUES
-    (1, 'Max', '2022-01-01', 1, 'Pequeno', 1, 1, 1),
-    (2, 'Bella', '2022-02-01', 2, 'Pequeno', 2, 1, 1),
-    (3, 'Charlie', '2022-03-01', 1, 'Médio', 3, 2, 2),
-    (4, 'Lucy', '2022-04-01', 2, 'Pequeno', 4, 2, 2),
-    (5, 'Rocky', '2022-05-01', 1, 'Grande', 5, 3, 3),
-    (6, 'Luna', '2022-06-01', 2, 'Pequeno', 6, 3, 3),
-    (7, 'Maximus', '2022-07-01', 1, 'Grande', 7, 4, 4),
-    (8, 'Sophie', '2022-08-01', 2, 'Médio', 8, 4, 4),
-    (9, 'Buddy', '2022-09-01', 1, 'Pequeno', 9, 5, 5),
-    (10, 'Milo', '2022-10-01', 2, 'Médio', 10, 5, 5);
+(1, 1, 'Cachorro'),
+(2, 2, 'Gato')
 
-INSERT INTO TIPO_TRATAMENTO (descricao, id_tratamento)
+INSERT INTO RACA (nome_raca, id_raca, id_especie)
 VALUES
-    ('Vacinação', 1),
-    ('Cirurgia', 2),
-    ('Exame de sangue', 3),
-    ('Tratamento odontológico', 4),
-    ('Fisioterapia', 5),
-    ('Banho e tosa', 6),
-    ('Desparasitação', 7),
-    ('Consulta veterinária', 8),
-    ('Corte de unhas', 9),
-    ('Adestramento', 10);
+('Poodle', 1, 1),
+('Bulldog', 2, 1),
+('Labrador', 3, 1),
+('Golden Retriever', 4, 1),
+('Chihuahua', 5, 1),
+('Beagle', 6, 1),
+('Boxer', 7, 1),
+('Dalmatian', 8, 1),
+('Rottweiler', 9, 1),
+('Schnauzer', 10, 1),
+('Doberman', 11, 1),
+('German Shepherd', 12, 1),
+('Cocker Spaniel', 13, 1),
+('Yorkshire Terrier', 14, 1),
+('Great Dane', 15, 1),
+('Shih Tzu', 16, 1),
+('Maltese', 17, 1),
+('Border Collie', 18, 1),
+('Australian Shepherd', 19, 1),
+('Siberian Husky', 20, 1),
+('Pomeranian', 21, 1),
+('Bichon Frise', 22, 1),
+('English Bulldog', 23, 1),
+('French Bulldog', 24, 1),
+('Basset Hound', 25, 1),
+('Bloodhound', 26, 1),
+('Saint Bernard', 27, 1),
+('Dachshund', 28, 1),
+('Pug', 29, 1),
+('Akita', 30, 1),
+('Bull Terrier', 31, 1),
+('Shiba Inu', 32, 1),
+('Collie', 33, 1),
+('Borzoi', 34, 1),
+('Whippet', 35, 1),
+('Papillon', 36, 1),
+('Bullmastiff', 37, 1),
+('Chinese Crested', 38, 1),
+('Basenji', 39, 1),
+('English Setter', 40, 1),
+('Irish Setter', 41, 1),
+('Weimaraner', 42, 1),
+('Rhodesian Ridgeback', 43, 1),
+('Pekingese', 44, 1),
+('Dalmatian', 45, 1),
+('Chow Chow', 46, 1),
+('Corgi', 47, 1),
+('Shetland Sheepdog', 48, 1),
+('Bernese Mountain Dog', 49, 1),
+('Newfoundland', 50, 1);
 
-INSERT INTO FUNCIONARIO (id_funcionario, ocupacao, FK_PESSOA_id_pessoa)
+INSERT INTO PELAGEM (tipo_pelagem, id_pelagem)
 VALUES
-    (1, 'Veterinário', 1),
-    (2, 'Atendente', 2),
-    (3, 'Auxiliar de veterinário', 3),
-    (4, 'Recepcionista', 4),
-    (5, 'Veterinário', 5),
-    (6, 'Atendente', 6),
-    (7, 'Auxiliar de veterinário', 7),
-    (8, 'Veterinário', 8),
-    (9 , 'Atendente', 9),
-    (10, 'Groomer', 10);
+('Curto', 1),
+('Longo', 2),
+('Médio', 3),
+('Cacheado', 4),
+('Sem pelo', 5),
+('Rajado', 6),
+('Encaracolado', 7),
+('Ondulado', 8),
+('Liso', 9),
+('Crespo', 10),
+('Espesso', 11),
+('Fino', 12),
+('Duro', 13),
+('Macio', 14),
+('Peludo', 15),
+('Pelo curto e denso', 16),
+('Pelo longo e sedoso', 17),
+('Pelo médio e ondulado', 18),
+('Pelo encaracolado', 19),
+('Pelo liso e brilhante', 20),
+('Pelo crespo e macio', 21),
+('Pelo espesso e denso', 22),
+('Pelo fino e sedoso', 23),
+('Pelo duro e áspero', 24),
+('Pelo macio e aveludado', 25),
+('Pelo peludo e abundante', 26),
+('Pelo liso e curto', 27),
+('Pelo longo e grosso', 28),
+('Pelo médio e encaracolado', 29),
+('Pelo encaracolado e sedoso', 30),
+('Pelo liso e sedoso', 31),
+('Pelo encaracolado e macio', 32),
+('Pelo liso e espesso', 33),
+('Pelo crespo e fino', 34),
+('Pelo espesso e duro', 35),
+('Pelo macio e brilhante', 36),
+('Pelo encaracolado e denso', 37),
+('Pelo liso e fino', 38),
+('Pelo encaracolado e sedoso', 39),
+('Pelo liso e macio', 40),
+('Pelo crespo e espesso', 41),
+('Pelo espesso e áspero', 42),
+('Pelo macio e aveludado', 43),
+('Pelo peludo e abundante', 44),
+('Pelo liso e curto', 45),
+('Pelo longo e grosso', 46),
+('Pelo médio e encaracolado', 47),
+('Pelo encaracolado e sedoso', 48),
+('Pelo liso e sedoso', 49),
+('Pelo encaracolado e macio', 50);
 
-INSERT INTO ENDERECO (nome_rua, id_endereco, bairro, cep, numero, id_pessoa)
-VALUES    
-    ('Rua A', 1, 'Centro', 12345, 10, 1),
-    ('Rua B', 2, 'Bairro X', 54321, 20, 2),
-    ('Rua C', 3, 'Bairro Y', 67890, 123, 3),
-    ('Rua D', 4, 'Bairro Z', 78901, 456, 4),
-    ('Rua E', 5, 'Bairro X', 89012, 789, 5),
-    ('Rua F', 6, 'Bairro Y', 90123, 234, 6),
-    ('Rua G', 7, 'Bairro Z', 12345, 567, 7),
-    ('Rua H', 8, 'Bairro X', 23456, 890, 8),
-    ('Rua I', 9, 'Bairro Y', 34567, 123, 9),
-    ('Rua J', 10, 'Bairro Z', 45678, 456, 10);
 
-INSERT INTO PESSOA (id_pessoa, nome_pessoa, telefone, cpf, email, id_animal, FK_ENDERECO_id_endereco)
+INSERT INTO TIPO_TRATAMENTO (descricao, id_tipo_tratamento)
 VALUES
-    (1, 'João', 123456789, 12345678900, 'joao@example.com', 1, 1),
-    (2, 'Maria', 987654321, 98765432100, 'maria@example.com', 2, 2),
-    (3, 'John Smith', 123456789, 11111111111, 'john@example.com', 3, 3),
-    (4, 'Jane Doe', 987654321, 22222222222, 'jane@example.com', 4, 4),
-    (5, 'Michael Johnson', 111222333, 33333333333, 'michael@example.com', 5, 5),
-    (6, 'Emily Williams', 444555666, 44444444444, 'emily@example.com', 6, 6),
-    (7, 'Christopher Brown', 777888999, 55555555555, 'christopher@example.com', 7, 7),
-    (8, 'Jessica Davis', 222333444, 66666666666, 'jessica@example.com', 8, 8),
-    (9, 'Daniel Wilson', 555666777, 77777777777, 'daniel@example.com', 9, 9),
-    (10, 'Olivia Taylor', 888999000, 88888888888, 'olivia@example.com', 10, 10);
+('Vacinação', 1),
+('Cirurgia', 2),
+('Exame de sangue', 3),
+('Limpeza dentária', 4),
+('Tratamento dermatológico', 5),
+('Fisioterapia', 6),
+('Desparasitação', 7),
+('Radiografia', 8),
+('Oftalmologia', 9),
+('Endoscopia', 10),
+('Acupuntura', 11),
+('Quimioterapia', 12),
+('Odontologia', 13),
+('Ultrassonografia', 14),
+('Ortopedia', 15);
 
-INSERT INTO RACA (id_animal, nome_raca, id_raca, id_especie)
+INSERT INTO PROCEDIMENTO (fk_ANIMAL_id_animal, fk_TIPO_TRATAMENTO_id_tratamento, descricao, data_hora)
 VALUES
-    (1, 'Poodle', 1, 1),
-    (2, 'Sphynx', 2, 2),
-    (3, 'Labrador Retriver', 1, 1),
-    (4, 'Persa', 2, 2),
-    (5, 'Pastor Alemão', 3, 1),
-    (6, 'Siames', 4, 2),
-    (7, 'Golden Retriever', 5, 1),
-    (8, 'Maine Coon', 6, 2),
-    (9, 'Bulldog', 7, 1),
-    (10, 'Ragdoll', 8, 2);
+(1, 1, 'Vacinação anual', '2023-01-10'),
+(2, 2, 'Esterilização', '2023-02-20'),
+(3, 3, 'Exame de sangue de rotina', '2023-03-15'),
+(4, 4, 'Limpeza dentária', '2023-04-25'),
+(5, 5, 'Tratamento dermatológico', '2023-05-12'),
+(6, 6, 'Sessão de fisioterapia', '2023-06-08'),
+(7, 7, 'Desparasitação interna', '2023-07-03'),
+(8, 8, 'Radiografia torácica', '2023-08-19'),
+(9, 9, 'Consulta oftalmológica', '2023-09-27'),
+(10, 10, 'Endoscopia gastrointestinal', '2023-10-22'),
+(11, 11, 'Sessão de acupuntura', '2023-11-14'),
+(12, 12, 'Sessão de quimioterapia', '2023-12-01'),
+(13, 13, 'Odontologia preventiva', '2024-01-18'),
+(14, 14, 'Ultrassonografia abdominal', '2024-02-27'),
+(15, 15, 'Consulta ortopédica', '2024-03-22');
 
-INSERT INTO PELAGEM (id_animal, tipo_pelagem, id_pelagem)
+INSERT INTO ANIMAL (id_animal, nome, data_chegada, id_especie, porte, FK_PESSOA_id_pessoa, id_raca, id_pelagem)
 VALUES
-    
-    (1, 'Crespa', 1),
-    (2, 'Curta', 2),
-    (3, 'Curto', 1),
-    (4, 'Longo', 2),
-    (5, 'Médio', 3),
-    (6, 'Curto', 4),
-    (7, 'Dourado', 5),
-    (8, 'Branco', 6),
-    (9, 'Tigrado', 7),
-    (10, 'Laranja', 8);
+(1, 'Max', '2023-01-01', 1, 'Pequeno', 1, 1, 1),
+(2, 'Luna', '2023-02-15', 2, 'Médio', 2, 2, 2),
+(3, 'Charlie', '2023-03-10', 1, 'Pequeno', 3, 3, 3),
+(4, 'Bella', '2023-04-05', 2, 'Grande', 4, 4, 4),
+(5, 'Lucy', '2023-05-20', 1, 'Pequeno', 5, 5, 5),
+(6, 'Cooper', '2023-06-18', 2, 'Médio', 6, 6, 6),
+(7, 'Daisy', '2023-07-14', 1, 'Pequeno', 7, 7, 7),
+(8, 'Rocky', '2023-08-09', 2, 'Grande', 8, 8, 8),
+(9, 'Lola', '2023-09-25', 1, 'Pequeno', 9, 9, 9),
+(10, 'Bailey', '2023-10-22', 2, 'Médio', 10, 10, 10),
+(11, 'Sadie', '2023-11-17', 2, 'Grande', 11, 11, 11),
+(12, 'Toby', '2023-12-13', 1, 'Pequeno', 12, 12, 12),
+(13, 'Coco', '2024-01-08', 1, 'Médio', 13, 13, 13),
+(14, 'Milo', '2024-02-03', 2, 'Pequeno', 14, 14, 14),
+(15, 'Ruby', '2024-03-01', 2, 'Grande', 15, 15, 15),
+(16, 'Leo', '2024-04-26', 1, 'Pequeno', 16, 16, 16),
+(17, 'Molly', '2024-05-22', 1, 'Médio', 17, 17, 17),
+(18, 'Maximus', '2024-06-18', 1, 'Grande', 18, 18, 18),
+(19, 'Mia', '2024-07-14', 1, 'Pequeno', 19, 19, 19),
+(20, 'Charlie', '2024-08-09', 2, 'Médio', 20, 20, 20),
+(21, 'Lily', '2024-09-04', 2, 'Grande', 21, 21, 21),
+(22, 'Oliver', '2024-10-01', 2, 'Pequeno', 22, 22, 22),
+(23, 'Sophie', '2024-10-28', 1, 'Médio', 23, 23, 23),
+(24, 'Bentley', '2024-11-24', 1, 'Grande', 24, 24, 24),
+(25, 'Penny', '2024-12-20', 1, 'Pequeno', 25, 25, 25),
+(26, 'Zeus', '2025-01-15', 2, 'Médio', 26, 26, 26),
+(27, 'Daisy', '2025-02-10', 2, 'Grande', 27, 27, 27),
+(28, 'Charlie', '2025-03-08', 1, 'Pequeno', 28, 28, 28),
+(29, 'Luna', '2025-04-03', 1, 'Médio', 29, 29, 29),
+(30, 'Cooper', '2025-04-30', 1, 'Grande', 30, 30, 30),
+(31, 'Molly', '2025-05-27', 1, 'Pequeno', 31, 31, 31),
+(32, 'Max', '2025-06-23', 2, 'Médio', 32, 32, 32),
+(33, 'Lola', '2025-07-19', 2, 'Grande', 33, 33, 33),
+(34, 'Bailey', '2025-08-15', 2, 'Pequeno', 34, 34, 34),
+(35, 'Sadie', '2025-09-10', 1, 'Médio', 35, 35, 35),
+(36, 'Toby', '2025-10-07', 1, 'Grande', 36, 36, 36),
+(37, 'Coco', '2025-11-02', 1, 'Pequeno', 37, 37, 37),
+(38, 'Milo', '2025-11-29', 2, 'Médio', 38, 38, 38),
+(39, 'Ruby', '2025-12-26', 2, 'Grande', 39, 39, 39),
+(40, 'Leo', '2026-01-21', 1, 'Pequeno', 40, 40, 40),
+(41, 'Molly', '2026-02-17', 1, 'Médio', 41, 41, 41),
+(42, 'Maximus', '2026-03-16', 1, 'Grande', 42, 42, 42),
+(43, 'Mia', '2026-04-11', 1, 'Pequeno', 43, 43, 43),
+(44, 'Charlie', '2026-05-08', 2, 'Médio', 44, 44, 44),
+(45, 'Lily', '2026-06-04', 2, 'Grande', 45, 45, 45),
+(46, 'Oliver', '2026-07-01', 2, 'Pequeno', 46, 46, 46),
+(47, 'Sophie', '2026-07-29', 1, 'Médio', 47, 47, 47),
+(48, 'Bentley', '2026-08-25', 1, 'Grande', 48, 48, 48),
+(49, 'Penny', '2026-09-21', 1, 'Pequeno', 49, 49, 49),
+(50, 'Zeus', '2026-10-18', 2, 'Médio', 50, 50, 50);
 
-INSERT INTO Possui_ANIMAL_ESPECIE_RACA_PELAGEM (fk_ANIMAL_id_animal, fk_ESPECIE_id_especie, fk_RACA_id_raca, fk_PELAGEM_id_pelagem)
+INSERT INTO FUNCIONARIO (id_funcionario, FK_PESSOA_id_pessoa, ocupacao)
 VALUES
-    (1, 1, 1, 1),
-    (2, 2, 2, 2),
-    (3, 1, 1, 1),
-    (4, 2, 2, 2),
-    (5, 1, 3, 3),
-    (6, 2, 4, 4),
-    (7, 1, 5, 5),
-    (8, 2, 6, 6),
-    (9, 1, 7, 7),
-    (10, 2, 8, 8);
-
-INSERT INTO Procedimento (fk_ANIMAL_id_animal, fk_TIPO_TRATAMENTO_id_tratamento, descricao, data_hora, id_animal, id_tratamento)
-VALUES
-
-    (1, 1, 'Vacinação anual', '2022-03-01', 1, 1),
-    (2, 2, 'Cirurgia de esterilização', '2022-04-01', 2, 2),
-    (3, 3, 'Vacinação anual', '2022-03-15', 3, 3),
-    (4, 4, 'Esterilização', '2022-04-20', 4, 4),
-    (5, 5, 'Hemograma completo', '2022-05-25', 5, 5),
-    (6, 6, 'Limpeza dentária', '2022-06-30', 6, 6),
-    (7, 7, 'Reabilitação pós-operatória', '2022-07-05', 7, 7),
-    (8, 8, 'Banho e tosa', '2022-08-10', 8, 8),
-    (9, 9, 'Desparasitação interna e externa', '2022-09-15', 9, 9),
-    (10, 10, 'Consulta de rotina', '2022-10-20', 10, 10);
- 
+(1, 1, 'Veterinário'),
+(2, 2, 'Recepcionista'),
+(3, 3, 'Auxiliar de Limpeza'),
+(4, 4, 'Veterinário'),
+(5, 5, 'Recepcionista'),
+(6, 6, 'Auxiliar de Limpeza'),
+(7, 7, 'Veterinário'),
+(8, 8, 'Recepcionista'),
+(9, 9, 'Auxiliar de Limpeza'),
+(10, 10, 'Veterinário'),
+(11, 11, 'Recepcionista'),
+(12, 12, 'Auxiliar de Limpeza'),
+(13, 13, 'Veterinário'),
+(14, 14, 'Recepcionista'),
+(15, 15, 'Auxiliar de Limpeza'),
+(16, 16, 'Veterinário'),
+(17, 17, 'Recepcionista'),
+(18, 18, 'Auxiliar de Limpeza'),
+(19, 19, 'Veterinário'),
+(20, 20, 'Recepcionista'),
+(21, 21, 'Auxiliar de Limpeza'),
+(22, 22, 'Veterinário'),
+(23, 23, 'Recepcionista'),
+(24, 24, 'Auxiliar de Limpeza'),
+(25, 25, 'Veterinário'),
+(26, 26, 'Recepcionista'),
+(27, 27, 'Auxiliar de Limpeza'),
+(28, 28, 'Veterinário'),
+(29, 29, 'Recepcionista'),
+(30, 30, 'Auxiliar de Limpeza'),
+(31, 31, 'Veterinário'),
+(32, 32, 'Recepcionista'),
+(33, 33, 'Auxiliar de Limpeza'),
+(34, 34, 'Veterinário'),
+(35, 35, 'Recepcionista'),
+(36, 36, 'Auxiliar de Limpeza'),
+(37, 37, 'Veterinário'),
+(38, 38, 'Recepcionista'),
+(39, 39, 'Auxiliar de Limpeza'),
+(40, 40, 'Veterinário'),
+(41, 41, 'Recepcionista'),
+(42, 42, 'Auxiliar de Limpeza'),
+(43, 43, 'Veterinário'),
+(44, 44, 'Recepcionista'),
+(45, 45, 'Auxiliar de Limpeza'),
+(46, 46, 'Veterinário'),
+(47, 47, 'Recepcionista'),
+(48, 48, 'Auxiliar de Limpeza'),
+(49, 49, 'Veterinário'),
+(50, 50, 'Recepcionista');
 ```
 
-### 9	TABELAS E PRINCIPAIS CONSULTAS<br>
+### 9 TABELAS E PRINCIPAIS CONSULTAS<br>
+
+### Todas os códigos e tabelas se encontram no colab, link abaixo. 
 
 #### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
-#### 9.1	CONSULTAS DAS TABELAS COM TODOS OS DADOS INSERIDOS (Todas) <br>
-
-![WhatsApp Image 2023-06-10 at 8 08 29 PM](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/4cb68395-d7a3-4e39-a36a-be287c3a0fb6)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (1)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/13399622-5933-4c6f-ab55-3c83b1da4652)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (2)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/21285e27-a526-40fb-bdbf-650eae7f13e9)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (3)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/a318a864-8617-43b4-8d16-6cbcb0fe47c1)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (4)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/fb927fd0-df49-4af0-9bfa-7b890a387104)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (5)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/c468ca47-b101-44a8-8e12-6b424e3bfd04)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (6)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/a0328be8-a813-436a-a3b4-955743bc5fcb)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (7)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/ba266365-925d-44ec-b1fa-57550b376a2b)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (8)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/9a3893a2-6fae-4854-a15d-ff5d53c36eb2)
---------------------------------------
-![WhatsApp Image 2023-06-10 at 8 08 29 PM (9)](https://github.com/AmoreAPatinhas/Template_Trab_BD1/assets/71940799/531b42b4-038d-44fe-a722-3680c5681db3)
-
-#### 9.2	CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)<br>
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
-
-#### 9.3	CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+### 9.1  SELECT DAS TABELAS
 
 ```
-SELECT p.nome_pessoa, p.cpf, a.porte
-FROM PESSOA p
-JOIN ANIMAL a ON p.id_animal = a.id_animal
+
+SELECT * FROM pessoa;
+
+SELECT * FROM funcionario;
+
+SELECT * FROM endereco;
+
+SELECT * FROM animal;
+
+SELECT * FROM  especie;
+
+SELECT * FROM raca;
+
+SELECT * FROM pelagem;
+
+SELECT * FROM tipo_tratamento;
+
+SELECT * FROM procedimento;
+
+``` 
+
+#### 9.2 CONSULTAS DAS TABELAS COM FILTROS WHERE (Mínimo 4)
+
+```
+
+SELECT * from pessoa WHERE nome_pessoa = 'Vanessa Souza';
+
+SELECT * from animal a  where nome='Max';
+
+SELECT * from endereco   where nome_rua='Rua A';
+
+SELECT * from especie e  where tipo_especie ='Cachorro';
+
+SELECT * from funcionario f where id_funcionario = 2;
+
+SELECT * from pelagem p where tipo_pelagem ='Longo';
+
+SELECT * from procedimento where descricao ='Esterilização';
+
+SELECT * from raca where nome_raca = 'Persa';
+
+SELECT * from tipo_tratamento where descricao = 'Cirurgia';
+
+
+``` 
+
+#### 9.3 CONSULTAS QUE USAM OPERADORES LÓGICOS, ARITMÉTICOS E TABELAS OU CAMPOS RENOMEADOS (Mínimo 11)
+
+```
+
+SELECT p.nome_pessoa, p.cpf, a.porte FROM PESSOA p 
+JOIN ANIMAL a ON p.id_animal = a.id_animal 
 WHERE p.cpf < 50000000000 AND a.porte = 'Pequeno'
 
-SELECT nome, porte FROM ANIMAL
+SELECT nome, porte FROM ANIMAL 
 WHERE porte = 'Pequeno' OR porte = 'Médio'
-    
-SELECT nome_pessoa FROM PESSOA 
+
+SELECT nome_pessoa FROM PESSOA
+WHERE id_animal IS NOT NULL
+
+SELECT nome_pessoa FROM PESSOA
 WHERE id_animal IS NOT NULL
 
 SELECT nome, porte, data_chegada
-FROM ANIMAL
-WHERE porte = 'Pequeno' AND data_chegada > '2022-01-01'
-
-SELECT nome, porte, data_chegada
-FROM ANIMAL
-WHERE porte = 'Pequeno' OR data_chegada < '2022-01-01'
+FROM ANIMAL WHERE porte = 'Pequeno' OR data_chegada < '2022-01-01'
 
 SELECT * FROM ANIMAL WHERE id_animal > 5 AND id_animal <= 8;
 
@@ -436,9 +591,8 @@ SELECT a.* FROM ANIMAL a
 JOIN PESSOA p ON a.FK_PESSOA_id_pessoa = p.id_pessoa
 WHERE p.telefone % 2 = 0;
 
-SELECT *
-FROM ANIMAL
-WHERE EXTRACT(YEAR FROM AGE(CURRENT_DATE, data_chegada)) > 0;
+SELECT * FROM ANIMAL
+WHERE EXTRACT(YEAR FROM AGE(CURRENT_DATE, data_chegada)) >= 0;
 
 SELECT a.nome AS nome_animal, p.nome_pessoa AS responsavel
 FROM ANIMAL a
@@ -448,25 +602,24 @@ SELECT e.nome_rua AS rua, e.numero AS numero_endereco
 FROM ANIMAL a
 JOIN PESSOA p ON a.FK_PESSOA_id_pessoa = p.id_pessoa
 JOIN ENDERECO e ON p.FK_ENDERECO_id_endereco = e.id_endereco
-WHERE p.cpf = 11111111111;
+WHERE p.cpf = 12345678901;
 
 SELECT p.descricao AS tratamento, p.data_hora AS data
 FROM Procedimento p;
 
 ```
 
-#### 9.4	CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+#### 9.4 CONSULTAS QUE USAM OPERADORES LIKE E DATAS (Mínimo 12) <br>
 
 ```
-SELECT * FROM PESSOA WHERE nome_pessoa LIKE 'J%';
+
+SELECT * FROM PESSOA WHERE nome_pessoa LIKE 'V%';
 
 SELECT * FROM ANIMAL WHERE nome LIKE '%o%';
 
-SELECT * FROM RACA WHERE nome_raca LIKE '%Retriever%' AND id_especie = 1;
+SELECT * FROM RACA WHERE nome_raca LIKE '%Collie%' AND id_especie = 1; 
 
-SELECT * FROM TIPO_TRATAMENTO WHERE descricao ILIKE '%vacina%';
+SELECT * FROM TIPO_TRATAMENTO WHERE descricao LIKE '%Vacinação%';
 
 SELECT * FROM PESSOA WHERE email LIKE '%@example.com';
 
@@ -474,50 +627,46 @@ SELECT * FROM ANIMAL WHERE data_chegada > '2022-06-01';
 
 SELECT * FROM Procedimento WHERE data_hora < '2022-05-01';
 
-SELECT * FROM PESSOA WHERE CAST(cpf AS TEXT) LIKE '11111111111%';
+SELECT * FROM PESSOA WHERE CAST(telefone AS TEXT) LIKE '987654321%';
 
 SELECT * FROM ANIMAL
-WHERE id_animal IN (SELECT fk_ANIMAL_id_animal FROM Procedimento 
-WHERE EXTRACT(MONTH FROM data_hora) = 3 AND EXTRACT(YEAR FROM data_hora) = 2022);
+WHERE id_animal IN (SELECT fk_ANIMAL_id_animal FROM Procedimento WHERE EXTRACT(DAY FROM data_hora) = 3 AND EXTRACT(YEAR FROM data_hora) <= 2022);
 
-SELECT * FROM PROCEDIMENTO WHERE EXTRACT(DAY FROM data_hora) = 15;
+SELECT * FROM PROCEDIMENTO WHERE EXTRACT(DAY FROM data_hora) = 27;
 
-SELECT * FROM PESSOA WHERE CAST(telefone as text) LIKE '%555%';
+SELECT * FROM PESSOA WHERE CAST(telefone as text) LIKE '%987654325%';
 
 SELECT * FROM ANIMAL WHERE nome LIKE '%s';
 
 ```
 
-#### 9.5	INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
-
-```
-delete from pelagem where tipo_pelagem = 'Curto'; 
-
-delete from animal where fk_pessoa_id_pessoa in (select id_pessoa from pessoa 
-where nome_pessoa = 'Michael Johnson');
-
-delete from especie where id_especie = 2;
-
-delete from procedimento where id_animal = 1;
-
-update raca set nome_raca = 'Lhasa Apso' where nome_raca = 'Golden Retriever';
-
-update endereco set numero = 3 where numero = 20;
-
-update animal set id_especie = 3 where id_animal = 1;
-
-update pessoa set nome_pessoa = 'Isabella S' where id_animal = 3;
+#### 9.5 INSTRUÇÕES APLICANDO ATUALIZAÇÃO E EXCLUSÃO DE DADOS (Mínimo 6)<br>
 
 ```
 
-#### 9.6	CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
+DELETE FROM pelagem WHERE tipo_pelagem = 'Curto';
 
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+DELETE from ANIMAL where fk_pessoa_id_pessoa IN (SELECT id_pessoa FROM pessoa
+WHERE nome_pessoa = 'Vanessa Souza');
+
+DELETE FROM especie WHERE id_especie = 1;
+
+DELETE FROM procedimento WHERE id_animal = 1;
+
+UPDATE raca SET nome_raca = 'Lhasa Apso' WHERE nome_raca = 'Golden Retriever';
+
+UPDATE endereco SET numero = 3 WHERE numero = 20;
+
+UPDATE animal SET id_especie = 3 WHERE id_animal = 1;
+
+UPDATE pessoa SET nome_pessoa = 'Isabella S' WHERE id_animal = 3;
 
 ```
-CONSULTA 1:
+
+#### 9.6 CONSULTAS COM INNER JOIN E ORDER BY (Mínimo 6)<br>
+
+```
+
 SELECT A.*, PE.nome_pessoa, F.ocupacao,P.*, TP.*
 FROM animal A
 INNER JOIN pessoa PE ON A.FK_PESSOA_id_pessoa = PE.id_pessoa
@@ -526,46 +675,8 @@ INNER JOIN procedimento P ON A.id_animal = P.fk_ANIMAL_id_animal
 INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tipo_tratamento
 ORDER BY P.data_hora;
 
-CONSULTA 2:
-SELECT E.*,PE.*, A.*,R.nome_raca,P.tipo_pelagem,ES.tipo_especie 
-FROM animal A 
-INNER JOIN pessoa PE ON PE.id_pessoa = A.FK_PESSOA_id_pessoa
-INNER JOIN endereco E ON E.id_endereco = PE.FK_ENDERECO_id_endereco
-INNER JOIN raca R ON R.id_raca = A.id_raca
-INNER JOIN pelage P ON P.id_pelagem = A.id_pelagem
-INNER JOIN especie ES ON ES.id_especie = A.id_especie
-ORDER BY A.data_chegada;
-
-CONSULTA 3:
-SELECT A.nome, E.tipo_especie
-FROM animal A
-INNER JOIN especie E ON A.id_especie = E.id_especie
-ORDER BY id_animal;
-
-CONSULTA 4:
-SELECT E.*, P.*
-FROM PESSOA P
-INNER JOIN endereco E ON P.FK_ENDERECO_id_endereco = E.id_endereco
-ORDER BY P.nome_pessoa;
-
-CONSULTA 5:
-SELECT A.nome, P.data_hora, TP_descricao
-FROM procediemnto P
-INNER JOIN animal A ON  P.fk_ANIMAL_id_animal = A.id_animal
-INNER JOIN tipo_tratamento TP ON P.fk_TIPO_TRATAMENTO_id_tratamento = TP.id_tipo_tratamento
-ORDER BY P.data_hora;
-
-CONSULTA 6:
-SELECT P.*, F.ocupacao
-FROM funcionario F
-INNER JOIN pessoa P ON F.FK_PESSOA_id_pessoa = P.id_pessoa
-ORDER BY F.descricao;
-
-
-
-
 SELECT A.*, P.*, TP.*, PE.*, F.*, E.*, PEL.*, R.*, EN.*
-FROM animal A 
+FROM animal A
 INNER JOIN procedimento P ON A.id_animal = P.fk_ANIMAL_id_animal
 INNER JOIN tipo_tratamento TP ON P. fk_TIPO_TRATAMENTO_id_tratamento = TP.id_tipo_tratamento
 INNER JOIN pessoa PE ON A. FK_PESSOA_id_pessoa = PE.id_pessoa
@@ -576,37 +687,71 @@ INNER JOIN raca R ON A.id_raca = R.id_raca
 INNER JOIN endereco EN ON PE. FK_ENDERECO_id_endereco = EN.id_endereco
 ORDER BY A.nome;
 
+SELECT E.*,PE.*, A.*,R.nome_raca,P.tipo_pelagem,ES.tipo_especie 
+FROM animal A 
+INNER JOIN pessoa PE ON PE.id_pessoa = A.FK_PESSOA_id_pessoa
+INNER JOIN endereco E ON E.id_endereco = PE.FK_ENDERECO_id_endereco
+INNER JOIN raca R ON R.id_raca = A.id_raca
+INNER JOIN pelagem P ON P.id_pelagem = A.id_pelagem
+INNER JOIN especie ES ON ES.id_especie = A.id_especie
+ORDER BY A.data_chegada;
+
+SELECT A.nome, E.tipo_especie
+FROM animal A
+INNER JOIN especie E ON A.id_especie = E.id_especie
+ORDER BY id_animal;
+
+SELECT E.*, P.*
+FROM PESSOA P
+INNER JOIN endereco E ON P.FK_ENDERECO_id_endereco = E.id_endereco
+ORDER BY P.nome_pessoa;
+
+SELECT A.nome, P.data_hora, TP.descricao
+FROM procedimento P
+INNER JOIN animal A ON  P.fk_ANIMAL_id_animal = A.id_animal
+INNER JOIN tipo_tratamento TP ON P.fk_TIPO_TRATAMENTO_id_tratamento = TP.id_tipo_tratamento
+ORDER BY P.data_hora;
+
 ```
 
-#### 9.7	CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)<br>
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+#### 9.7 CONSULTAS COM GROUP BY E FUNÇÕES DE AGRUPAMENTO (Mínimo 6)
 
 ```
-SELECT * FROM pessoa GROUP BY nome_pessoa
 
-SELECT * FROM animal GROUP BY nome
+SELECT * FROM pessoa GROUP BY nome_pessoa, id_pessoa;
 
-SELECT * FROM endereco GROUP BY nome_rua
+SELECT * FROM animal GROUP BY nome, id_animal;
 
-SELECT * FROM especie GROUP BY tipo_especie
+SELECT * FROM endereco GROUP BY nome_rua, endereco.id_endereco;
 
-SELECT * FROM funcionario GROUP BY ocupacao
+SELECT * FROM especie GROUP BY especie.id_especie,tipo_especie;
 
-SELECT * FROM pelagem GROUP BY tipo_pelagem
+SELECT id_funcionario, MAX(ocupacao) AS max_ocupacao
+FROM funcionario
+GROUP BY id_funcionario;
 
-SELECT * FROM procedimento GROUP BY descricao
+SELECT id_pelagem, tipo_pelagem
+FROM pelagem
+GROUP BY id_pelagem, tipo_pelagem;
 
-SELECT * FROM raca GROUP BY nome_raca
+SELECT fk_animal_id_animal, descricao
+FROM procedimento
+GROUP BY fk_animal_id_animal, descricao;
 
-SELECT * FROM tipo_tratamento GROUP BY descricao
+SELECT nome_raca, id_raca, id_especie
+FROM raca
+GROUP BY nome_raca, id_raca, id_especie;
+
+SELECT id_tipo_tratamento, descricao
+FROM tipo_tratamento
+GROUP BY id_tipo_tratamento, descricao;
+
 ``` 
 
-#### 9.8	CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)<br>
+#### 9.8 CONSULTAS COM LEFT, RIGHT E FULL JOIN (Mínimo 4)
 
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+```
 
-``` 
 SELECT PESSOA.id_pessoa, PESSOA.nome_pessoa, FUNCIONARIO.ocupacao
 FROM PESSOA
 LEFT JOIN FUNCIONARIO ON PESSOA.id_pessoa = FUNCIONARIO.FK_PESSOA_id_pessoa;
@@ -627,44 +772,47 @@ FROM PESSOA
 LEFT JOIN ANIMAL ON PESSOA.id_pessoa = ANIMAL.FK_PESSOA_id_pessoa
 LEFT JOIN ESPECIE ON ANIMAL.id_especie = ESPECIE.id_especie;
 
+SELECT ANIMAL.nome, TRATAMENTO.descricao
+FROM ANIMAL
+LEFT JOIN PROCEDIMENTO ON ANIMAL.id_animal = PROCEDIMENTO.fk_ANIMAL_id_animal
+LEFT JOIN TIPO_TRATAMENTO TRATAMENTO ON PROCEDIMENTO.fk_TIPO_TRATAMENTO_id_tratamento = TRATAMENTO.id_tipo_tratamento
+LIMIT 20;
+
 ```
 
-#### 9.9	CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+#### 9.9 CONSULTAS COM SELF JOIN E VIEW (Mínimo 6)<br>
 
 ```
-create view funcionario_e_ocupacao as
-select id_funcionario,ocupacao
-from funcionario;
+
+CREATE VIEW funcionario_e_ocupacao AS
+SELECT id_funcionario,ocupacao
+FROM funcionario;
 
 SELECT * FROM funcionario_e_ocupacao;
 
-create view animal_e_porte as
-select nome,porte
-from animal
-order by porte;
+CREATE VIEW quantd_funcionarios_por_ocupacao AS
+SELECT f.ocupacao, COUNT(DISTINCT f.id_funcionario) AS quantidade_funcionarios
+FROM funcionario f
+GROUP BY f.ocupacao;
+
+SELECT * FROM quantd_funcionarios_por_ocupacao;
+
+CREATE VIEW animal_e_porte AS SELECT nome, porte
+FROM animal
+ORDER BY porte;
 
 SELECT * FROM animal_e_porte;
-
-create view funcionarios_por_ocupacao as
-select f1.ocupacao, count(f2.id_funcionario) as quantidade_funcionarios
-from funcionario f1
-join funcionario f2 ON f1.ocupacao = f2.ocupacao
-group by f1.ocupacao;
-
-SELECT * FROM funcionarios_por_ocupacao;
 
 SELECT e1.nome_rua, COUNT(e2.id_endereco) as quantidade_enderecos
 FROM endereco e1
 JOIN endereco e2 ON e1.nome_rua = e2.nome_rua
 GROUP BY e1.nome_rua;
 
-create view pessoas_mesmo_endereco as
-select p1.nome_pessoa, p2.nome_pessoa as nome_pessoa_relacionada
-from pessoa p1
-join pessoa p2 on p1.fk_endereco_id_endereco = p2.fk_endereco_id_endereco
-where p1.id_pessoa <> p2.id_pessoa;
+CREATE VIEW pessoas_mesmo_endereco AS
+SELECT p1.nome_pessoa, p2.nome_pessoa AS nome_pessoa_relacionada
+FROM pessoa p1
+JOIN pessoa p2 on p1.fk_endereco_id_endereco = p2.fk_endereco_id_endereco
+WHERE p1.id_pessoa <> p2.id_pessoa;
 
 SELECT * FROM pessoas_mesmo_endereco;
 
@@ -675,91 +823,42 @@ GROUP BY p1.id_animal;
 
 ```
 
-#### 9.10	SUBCONSULTAS (Mínimo 4)<br>
-
-#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
+#### 9.10 SUBCONSULTAS (Mínimo 4)<br>
 
 ```
-SELECT *
-FROM animal
-WHERE fk_funcionario_id_funcionario NOT IN (
-    SELECT DISTINCT fk_funcionario_id_funcionario
+
+SELECT * FROM animal
+WHERE fk_pessoa_id_pessoa NOT IN (
+    SELECT DISTINCT fk_pessoa_id_pessoa
     FROM animal
     WHERE porte <> 'Pequeno'
 );
 
-SELECT *
-FROM funcionario
+SELECT * FROM funcionario
 WHERE id_funcionario IN (
     SELECT DISTINCT id_funcionario
     FROM funcionario
-    WHERE ocupacao = 'Atendente'
+    WHERE ocupacao = 'Veterinário'
 );
 
-SELECT *
-FROM funcionario
-WHERE ocupacao IN ('Atendente', 'Groomer');
+SELECT * FROM funcionario
+WHERE ocupacao IN ('Veterinário', 'Recepcionista');
 
-SELECT id_animal, nome, porte, id_especie
-FROM animal
+SELECT id_animal, nome, porte, id_especie FROM animal
 WHERE id_especie IN (1);
+
+SELECT id_animal, nome, porte, id_especie FROM animal
+WHERE id_especie IN (2);
 
 ```
 
-
-
-># Marco de Entrega 02: Do item 9.2 até o ítem 9.10<br>
-
 ### 10 RELATÓRIOS E GRÁFICOS
 
-#### a) análises e resultados provenientes do banco de dados desenvolvido (usar modelo disponível)
-#### b) link com exemplo de relatórios será disponiblizado pelo professor no AVA
-#### OBS: Esta é uma atividade de grande relevância no contexto do trabalho. Mantenha o foco nos 5 principais relatórios/resultados visando obter o melhor resultado possível.
+### Todas os relatórios e gráficos se encontram no colab, link abaixo. 
+
+#### Link do Colab: https://colab.research.google.com/drive/1Xa8sNnJWlX7lkmoH0PHXi7EGnG9m5GUN?usp=sharing
 
 ### 11	AJUSTES DA DOCUMENTAÇÃO, CRIAÇÃO DOS SLIDES E VÍDEO PARA APRESENTAÇAO FINAL <br>
 
-#### a) Modelo (pecha kucha)<br>
+#### a) Modelo (pecha kucha)
 #### b) Tempo de apresentação 6:40 
-
-># Marco de Entrega 03: Itens 10 e 11<br>
-<br>
-<br>
-
-
-### 12 FORMATACAO NO GIT:<br> 
-https://help.github.com/articles/basic-writing-and-formatting-syntax/
-<comentario no git>
-    
-##### About Formatting
-    https://help.github.com/articles/about-writing-and-formatting-on-github/
-    
-##### Basic Formatting in Git
-    
-    https://help.github.com/articles/basic-writing-and-formatting-syntax/#referencing-issues-and-pull-requests
-    
-    
-##### Working with advanced formatting
-    https://help.github.com/articles/working-with-advanced-formatting/
-#### Mastering Markdown
-    https://guides.github.com/features/mastering-markdown/
-
-    
-### OBSERVAÇÕES IMPORTANTES
-
-#### Todos os arquivos que fazem parte do projeto (Imagens, pdfs, arquivos fonte, etc..), devem estar presentes no GIT. Os arquivos do projeto vigente não devem ser armazenados em quaisquer outras plataformas.
-1. <strong>Caso existam arquivos com conteúdos sigilosos<strong>, comunicar o professor que definirá em conjunto com o grupo a melhor forma de armazenamento do arquivo.
-
-#### Todos os grupos deverão fazer Fork deste repositório e dar permissões administrativas ao usuário do git "profmoisesomena", para acompanhamento do trabalho.
-
-#### Os usuários criados no GIT devem possuir o nome de identificação do aluno (não serão aceitos nomes como Eu123, meuprojeto, pro456, etc). Em caso de dúvida comunicar o professor.
-
-
-Link para BrModelo:<br>
-http://www.sis4.com/brModelo/download.html
-<br>
-
-
-Link para curso de GIT<br>
-![https://www.youtube.com/curso_git](https://www.youtube.com/playlist?list=PLo7sFyCeiGUdIyEmHdfbuD2eR4XPDqnN2?raw=true "Title")
-
-
