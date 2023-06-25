@@ -527,7 +527,7 @@ INNER JOIN tipo_tratamento TP ON P.fk_tipo_tratamento_id_tratamento = TP.id_tipo
 ORDER BY P.data_hora;
 
 CONSULTA 2:
-SELECT E.*,PE.*, A.*,R.*,P.*,ES.* 
+SELECT E.*,PE.*, A.*,R.nome_raca,P.tipo_pelagem,ES.tipo_especie 
 FROM animal A 
 INNER JOIN pessoa PE ON PE.id_pessoa = A.FK_PESSOA_id_pessoa
 INNER JOIN endereco E ON E.id_endereco = PE.FK_ENDERECO_id_endereco
@@ -537,10 +537,8 @@ INNER JOIN especie ES ON ES.id_especie = A.id_especie
 ORDER BY A.data_chegada;
 
 CONSULTA 3:
-SELECT A.nome, R.nome_raca, P.tipo_pelagem, E.tipo_especie
+SELECT A.nome, E.tipo_especie
 FROM animal A
-INNER JOIN raca R ON A.id_raca = R.id_raca
-INNER JOIN pelagem P ON A.id_pelagem = P.id_pelagem
 INNER JOIN especie E ON A.id_especie = E.id_especie
 ORDER BY id_animal;
 
